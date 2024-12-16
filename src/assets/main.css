@@ -39,6 +39,12 @@ a,
   font: 150%  'Lucida Grande','Lucida Sans Unicode',Verdana,Helvetica,sans-serif,'GNU Unifont';
 }
 
+@media screen and (max-width: 800px) {
+  .rendered {
+    display: none;
+  }
+}
+
 .rendered p {
   margin: 1.286em auto;
 }
@@ -46,6 +52,7 @@ a,
 textarea {
   padding: 20px;
   width: 800px;
+  max-width: 100%;
   height: 400px;
   line-height: 50px;
   color: rgb(42, 42, 42);
@@ -64,6 +71,7 @@ button {
 
 .output {
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .success {

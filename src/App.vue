@@ -231,7 +231,6 @@ function stripHtml(text) {
 <template>
   <div class="output">
     <p>{{ wordCount }} words</p>
-    <p>{{ paragraphCount }} paragraphs</p>
     <p v-for="msg in state.messages" :class="classForMessage(msg)">
       <a :href="msg.href">{{ msg.text }}</a>
     </p>
