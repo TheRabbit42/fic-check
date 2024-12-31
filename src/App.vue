@@ -3,8 +3,6 @@ import { reactive, ref, computed, watch } from 'vue'
 
 const input = ref('');
 const state = reactive({ messages: [] });
-let showHtml = ref(true);
-
 const console = computed(() => console);
 
 const wordCount = computed(() => {
@@ -70,6 +68,10 @@ const parasWithUnsmoothAttribution = computed(() => {
   return paragraphs.value.filter((para) => isParagraphWithUnsmoothAttribution(para));
 });
 
+const parasWithUnaccentedWords = computed(() => {
+  return paragraphs.value.filter((para) => isParagraphWithUnaccentedWord(para))
+});
+
 const extraLineBreaks = computed(() => {
   return (input.value.match(/\n{3,}/gim) || [])
 });
@@ -78,6 +80,11 @@ const inputWithoutHtml = computed(() => {
   let doc = new DOMParser().parseFromString(input.value, 'text/html');
   return doc.body.textContent || '';
 });
+
+const accentedWords = [
+  'Chloe', 'Cesaire', 'Mylene', 'Emilie', 'Felix',
+  'Zoe', 'Kante', 'Haprele', 'Andre', 'Amelie'
+];
 
 watch(input, async (oldInput, newInput) => {
   state.messages = [
@@ -119,6 +126,11 @@ watch(input, async (oldInput, newInput) => {
       text: 'All quotes have smooth attributions.',
       error: parasWithUnsmoothAttribution.value.length > 0,
       href: '#attributions'
+    },
+    {
+      text: 'All names are properly accented.',
+      error: parasWithUnaccentedWords.value.length > 0,
+      href: '#accents'
     }
   ]
 })
@@ -158,6 +170,12 @@ function renderParagraph(paragraph) {
   if (isParagraphWithUnsmoothAttribution(paragraph)) {
     const regex = /[?!]" [A-Z][ A-z]+ (said|asked)/g; // "h!" S
     paragraph = paragraph.replace(regex, '<span id="attributions" class="highlight-red">$&</span>');
+  }
+
+  if (isParagraphWithUnaccentedWord(paragraph)) {
+    for (let word of accentedWords) {
+      paragraph = paragraph.replace(word, '<span id="accents" class="highlight-red">$&</span>');
+    }
   }
 
   paragraph = `<p>${paragraph}</p>`;
@@ -206,6 +224,12 @@ function isParagraphWithRepeatWord(paragraph) {
     lastWord = word;
   }
   return false;
+}
+
+function isParagraphWithUnaccentedWord(paragraph) {
+  return accentedWords.some((word) => {
+    return (paragraph.match(word) || []).length > 0;
+  });
 }
 
 function isParagraphWithUnsmoothAttribution(paragraph) {
