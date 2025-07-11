@@ -39,10 +39,6 @@ const paragraphs = computed(() => {
   return input.value.split(/\n\s*\n/).filter(Boolean);
 });
 
-const paragraphCount = computed(() => {
-  return stripHtml(input.value).split(/\n\s*\n/).filter(Boolean).length;
-});
-
 const parasWithUnclosedQuotes = computed(() => {
   return paragraphs.value.filter((para) => (para.match(/"/g) || []).length % 2 > 0);
 });
@@ -75,11 +71,6 @@ const parasWithUnaccentedWords = computed(() => {
 
 const extraLineBreaks = computed(() => {
   return (input.value.match(/\n{3,}/gim) || [])
-});
-
-const inputWithoutHtml = computed(() => {
-  let doc = new DOMParser().parseFromString(input.value, 'text/html');
-  return doc.body.textContent || '';
 });
 
 const accentedWords = [
@@ -245,11 +236,6 @@ function classForMessage(message) {
     return 'warning';
   }
   return 'success';
-}
-
-function stripHtml(text) {
-  let doc = new DOMParser().parseFromString(text, 'text/html');
-  return doc.body.textContent || '';
 }
 </script>
 
