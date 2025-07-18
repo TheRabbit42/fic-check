@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, ref, computed, watch } from 'vue'
-import { checklist } from "@/checks/_checklist.js"
+import { checklist } from "@/data/checklist.js"
 
 const input = ref('');
 const state = reactive({ messages: [] });
@@ -37,6 +37,7 @@ function renderParagraph(paragraph) {
   <div class="output">
     <p v-for="msg in state.messages" :class="msg.style">
       <a :href="msg.href">{{ msg.text }}</a>
+      <p v-html="msg.renderAdditional"></p>
     </p>
   </div>
 

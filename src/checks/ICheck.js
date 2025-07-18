@@ -16,8 +16,13 @@ export class ICheck {
             {
                 text: this.message,
                 style: this.isInAnyParagraph(paragraphs) ? this.style : 'success',
-                href: `#${this.id}`
+                href: `#${this.id}`,
+                renderAdditional: this.renderAdditional(),
             }
         )
+    }
+
+    renderAdditional() {
+        return '';
     }
 }
