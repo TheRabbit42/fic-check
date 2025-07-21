@@ -5,13 +5,13 @@ export class SmartQuotes extends ICheck {
     message = 'All paragraphs free of smart quotes';
     style = 'error';
 
+    regex = /[‘’’“”]/gi;
+
     isInParagraph(paragraph) {
-        const regex = /[‘’’“”]/gi;
-        return (paragraph.match(regex) || []).length % 2 > 0;
+        return (paragraph.match(this.regex) || []).length % 2 > 0;
     }
 
     render(paragraph) {
-        const regex = /[‘’’“”]/gi;
-        return paragraph.replace(regex, `<span id="${this.id}" class="highlight-${this.style}">$&</span>`);
+        return paragraph.replace(this.regex, `<span id="${this.id}" class="highlight-${this.style}">$&</span>`);
     }
 }

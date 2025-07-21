@@ -5,13 +5,13 @@ export class UnsmoothAttribution extends ICheck {
     message = 'All paragraphs free of unsmooth attributions';
     style = 'warning';
 
+    regex = /[?!]" [A-Z][ A-z]+ (said|asked)/g;
+
     isInParagraph(paragraph) {
-        const regex = /[?!]" [A-Z][ A-z]+ (said|asked)/g;
-        return (paragraph.match(regex) || []).length > 0;
+        return (paragraph.match(this.regex) || []).length > 0;
     }
 
     render(paragraph) {
-        const regex = /[?!]" [A-Z][ A-z]+ (said|asked)/g; // "h!" S
-        return paragraph.replace(regex, `<span id="${this.id}" class="highlight-${this.style}">$&</span>`);
+        return paragraph.replace(this.regex, `<span id="${this.id}" class="highlight-${this.style}">$&</span>`);
     }
 }

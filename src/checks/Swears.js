@@ -5,13 +5,13 @@ export class Swears extends ICheck {
     message = 'All paragraphs free of swears';
     style = 'warning';
 
+    regex = /bitch|cunt|fuck|shit/gi;
+
     isInParagraph(paragraph) {
-        const regex = /bitch|cunt|fuck|shit/gi;
-        return (paragraph.match(regex) || []).length > 0;
+        return (paragraph.match(this.regex) || []).length > 0;
     }
 
     render(paragraph) {
-        const regex = /bitch|cunt|fuck|shit/gi;
-        return paragraph.replace(regex, `<span id="${this.id}" class="highlight-${this.style}">$&</span>`);
+        return paragraph.replace(this.regex, `<span id="${this.id}" class="highlight-${this.style}">$&</span>`);
     }
 }

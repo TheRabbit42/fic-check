@@ -5,15 +5,16 @@ export class RepeatWhitespace extends ICheck {
     message = 'All paragraphs free of repeat whitespace';
     style = 'error';
 
+    regex = /\s{2,}/gi;
+
     isInParagraph(paragraph) {
         const initialLength = paragraph.length;
-        paragraph = paragraph.replace(/\s{2,}/gi, ' ');
+        paragraph = paragraph.replace(this.regex, ' ');
         const finalLength = paragraph.length;
         return initialLength != finalLength;
     }
 
     render(paragraph) {
-        const regex = /\s{2,}/gi;
-        return paragraph.replace(regex, `<span id="${this.id}" class="highlight-${this.style}">$&</span>`);
+        return paragraph.replace(this.regex, `<span id="${this.id}" class="highlight-${this.style}">$&</span>`);
     }
 }
