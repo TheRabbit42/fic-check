@@ -11,6 +11,7 @@ import { InvalidHtml } from "@/checks/InvalidHtml.js";
 import { ExtraLineBreaks } from "@/checks/ExtraLineBreaks.js";
 import { OverusedWords } from "@/checks/OverusedWords.js";
 import { RepeatPhrases } from "@/checks/RepeatPhrases.js";
+import { QuoteSpacing } from "@/checks/QuoteSpacing.js";
 
 export const checklist = [
     new WordCount,
@@ -24,6 +25,7 @@ export const checklist = [
     new UnsmoothAttribution(),
     new InvalidHtml(),
     new ExtraLineBreaks(),
+    new QuoteSpacing,
     //new OverusedWords(),
     new RepeatPhrases()
 ];
