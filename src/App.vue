@@ -34,15 +34,15 @@ function renderParagraph(paragraph) {
 </script>
 
 <template>
+  <div class="input">
+    <textarea v-model="input" placeholder="Insert text"></textarea>
+    <div v-html="renderedInput" class="rendered"></div>
+  </div>
+
   <div class="output">
     <p v-for="msg in state.messages" :class="msg.style">
       <a :href="msg.href">{{ msg.text }}</a>
       <p v-html="msg.renderAdditional"></p>
     </p>
-  </div>
-
-  <div>
-    <textarea v-model="input" placeholder="Insert text"></textarea>
-    <div v-html="renderedInput" class="rendered"></div>
   </div>
 </template>
