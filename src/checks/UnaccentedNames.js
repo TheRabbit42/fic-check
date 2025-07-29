@@ -1,4 +1,4 @@
-import { ICheck } from "@/checks/ICheck.js";
+import { ICheck } from "./ICheck.js";
 
 export class UnaccentedNames extends ICheck {
     id = 'unaccent'

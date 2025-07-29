@@ -1,12 +1,21 @@
-import { ICheck } from "@/checks/ICheck.js";
+import { ICheck } from "./ICheck.js";
 
 export class InvalidHtml extends ICheck {
     id = 'html';
     message = 'All paragraphs free of invalid html';
     style = 'error';
-    tags = ['em', 'strong']
+    tags = ['em', 'strong', 'li']
 
     isInParagraph(paragraph) {
+        for (let tag of this.tags) {
+            let match1 = new RegExp(`<>`, 'gi');
+            let match2 = new RegExp(`</>`, 'gi');
+            if ((paragraph.match(match1) || []).length != (paragraph.match(match2) || []).length)
+            {
+                return true;
+            }
+        }
+
         for (let tag of this.tags) {
             let match1 = new RegExp(`<${tag}>`, 'gi');
             let match2 = new RegExp(`<\/${tag}>`, 'gi');
