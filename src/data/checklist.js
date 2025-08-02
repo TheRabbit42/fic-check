@@ -9,6 +9,7 @@ import { RepeatWords } from "@/checks/RepeatWords.js";
 import { UnsmoothAttribution } from "@/checks/UnsmoothAttribution.js";
 import { InvalidHtml } from "@/checks/InvalidHtml.js";
 import { ExtraLineBreaks } from "@/checks/ExtraLineBreaks.js";
+import { MissingApostrophes } from "@/checks/MissingApostrophes.js";
 import { OverusedWords } from "@/checks/OverusedWords.js";
 import { RepeatPhrases } from "@/checks/RepeatPhrases.js";
 import { QuoteSpacing } from "@/checks/QuoteSpacing.js";
@@ -19,6 +20,7 @@ export const checklist = [
     new UnclosedQuotes(),
     new Swears(),
     new SmartQuotes(),
+    new MissingApostrophes(),
     new UnaccentedNames(),
     new RepeatWhitespace(),
     new RepeatWords(),
