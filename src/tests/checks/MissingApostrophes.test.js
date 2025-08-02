@@ -10,4 +10,9 @@ describe("MissingApostrophes", () => {
             expect(check.isInParagraph(text)).toBe(true);
         });
     })
+
+    it(`ignores sentences with correct apostrophes`, () => {
+        const text = `Sentence without apostrophes in it.`;
+        expect(check.isInParagraph(text)).toBe(false);
+    });
 });
