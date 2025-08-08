@@ -5,7 +5,7 @@ export class InvalidWhitespace extends ICheck {
     message = 'All paragraphs free of invalid whitespace';
     style = 'error';
 
-    regex = /(\s{2,})|(\w[\.,?!]\w)/gi;
+    regex = /(\s{2,})|([a-zA-Z][\.,;:?!]\w)|(\w[\.,;:?!][a-zA-Z])/gi;
 
     isInParagraph(paragraph) {
         return (paragraph.match(this.regex) || []).length > 0;
