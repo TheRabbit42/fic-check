@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class RepeatWords extends ICheck {
     id = "repeatword"
-    message = 'All paragraphs free of repeat words';
+    message = 'Text free of repeat words';
     style = 'warning';
 
     isInParagraph(paragraph) {

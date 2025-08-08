@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class InvalidWhitespace extends ICheck {
     id = "whitespace"
-    message = 'All paragraphs free of invalid whitespace';
+    message = 'Text free of invalid whitespace';
     style = 'error';
 
     regex = /(\s{2,})|([a-zA-Z][\.,;:?!]\w)|(\w[\.,;:?!][a-zA-Z])/gi;

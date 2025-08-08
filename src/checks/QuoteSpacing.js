@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class QuoteSpacing extends ICheck {
     id = 'quotespacing';
-    message = 'All paragraphs free of incorrect quote spacing';
+    message = 'Text free of incorrect quote spacing';
     style = 'error';
 
     regex = /(^"\s)|(\s"\s)|(\s"$)/gim;

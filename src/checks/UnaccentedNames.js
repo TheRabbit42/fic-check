@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class UnaccentedNames extends ICheck {
     id = 'unaccent'
-    message = 'All paragraphs free of unaccented names';
+    message = 'Text free of unaccented names';
     style = 'error';
 
     accentedWords = [

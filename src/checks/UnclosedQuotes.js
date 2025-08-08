@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class UnclosedQuotes extends ICheck {
     id = 'quote';
-    message = 'All paragraphs free of unclosed quotes';
+    message = 'Text free of unclosed quotes';
     style = 'error';
 
     regex = /"/gi;

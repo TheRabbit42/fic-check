@@ -2,7 +2,7 @@ import { ICheck } from "@/checks/ICheck.js";
 
 export class ExtraLineBreaks extends ICheck {
     id = 'linebreak';
-    message = 'All paragraphs free of extra line breaks';
+    message = 'Text free of extra line breaks';
     style = 'error';
 
     isInAnyParagraph(paragraphs) {
