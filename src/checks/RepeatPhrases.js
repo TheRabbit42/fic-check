@@ -6,7 +6,7 @@ export class RepeatPhrases extends ICheck {
     style = 'warning';
 
     counts = {}
-    minCount = 2;
+    minCount = 3;
     minLength = 3;
 
     isInAnyParagraph(paragraphs) {
