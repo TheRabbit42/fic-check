@@ -49,11 +49,15 @@ a,
   margin: 1.286em auto;
 }
 
+.btn-clear {
+  float: right;
+}
+
 textarea {
   padding: 20px;
   width: 800px;
   max-width: 100%;
-  height: 300px;
+  height: 100px;
   line-height: 50px;
   color: rgb(42, 42, 42);
   font: 150%  'Lucida Grande','Lucida Sans Unicode',Verdana,Helvetica,sans-serif,'GNU Unifont';
@@ -69,9 +73,8 @@ button {
   height: 800px;
 }
 
-.input {
-  margin-bottom: 1rem;
-  margin-right: 1rem;
+.actions > * {
+  float: right;
 }
 
 .success {
@@ -120,5 +123,13 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding:2rem;
+  }
+
+  .input {
+    margin-right: 1rem;
+  }
+
+  .actions {
+    display: none;
   }
 }

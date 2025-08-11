@@ -23,6 +23,18 @@ watch(input, async (oldInput, newInput) => {
   state.messages = checklist.map((check) => check.getMessage(input, paragraphs.value));
 })
 
+function clear(event) {
+  input.value = '';
+}
+
+async function paste(event) {
+  try {
+    const text = await navigator.clipboard.readText()
+    input.value = text;
+  } catch (error) {
+  }
+}
+
 function renderParagraph(paragraph) {
   for (let check of checklist) {
     if (check.isInParagraph(paragraph)) {
@@ -40,6 +52,10 @@ function renderParagraph(paragraph) {
   </div>
 
   <div class="output">
+    <div class="actions">
+      <a href="#" @click="clear">Clear</a><span>&nbsp;|&nbsp;</span><a href="#" @click="paste">Paste</a>
+    </div>
+
     <p v-for="msg in state.messages" :class="msg.style">
       <a :href="msg.href">{{ msg.text }}</a>
       <p v-html="msg.renderAdditional"></p>
