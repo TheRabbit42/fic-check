@@ -6,14 +6,21 @@ export class MissingApostrophes extends ICheck {
     style = 'error';
 
     words = [
-        'cant', 'couldnt', 'didnt', 'dont', 'hadnt', 'isnt',
-        'mustnt', 'shouldnt', 'wasnt', 'wouldnt'
+        'aint',
+        'cant', 'couldnt', 'couldve',
+        'didnt', 'doesnt', 'dont',
+        'hadnt', 'hasnt',
+        'isnt',
+        'mightve', 'mustnt',
+        'shed', 'shell', 'shouldnt',
+        'thats', 'theres', 'therell', 'theyd', 'theyll', 'theyve',
+        'wasnt', 'weve', 'whos', 'wont', 'wouldnt', 'wouldve'
     ];
 
     isInParagraph(paragraph) {
-        return this.words.some((word) => {
-            return (paragraph.match(word) || []).length > 0;
-        });
+        const joinedWords = this.words.join('|');
+        const regex = new RegExp(`\\b(${joinedWords})\\b`, 'gi');
+        return (paragraph.match(regex) || []).length > 0;
     }
 
     render(paragraph) {
