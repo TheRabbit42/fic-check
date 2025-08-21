@@ -1,4 +1,4 @@
-import { ICheck } from "@/checks/ICheck.js";
+import { ICheck } from "./ICheck.js";
 
 export class RepeatPhrases extends ICheck {
     id = "repeatphrase"
@@ -6,17 +6,17 @@ export class RepeatPhrases extends ICheck {
     style = 'warning';
 
     counts = {}
-    minCount = 3;
-    minLength = 3;
+    minPhraseLength = 3;
+    minWordLength = 3;
 
     isInAnyParagraph(paragraphs) {
         this.counts = {}
         for (const paragraph of paragraphs) {
             let words = paragraph.toLowerCase().replace(/[^A-Za-z0-9 ]/g, '').split(' ')
 
-            for (let i = 0; i < words.length-this.minLength; i++) {
+            for (let i = 0; i <= words.length-this.minPhraseLength; i++) {
                 let phrase = '';
-                for (let j = 0; j < this.minLength; j++)
+                for (let j = 0; j < this.minWordLength; j++)
                 {
                     phrase += `${words[i+j]} `;
                 }
@@ -25,7 +25,8 @@ export class RepeatPhrases extends ICheck {
                 this.counts[phrase] += 1;
             }
         }
-        const filtered = Object.entries(this.counts).filter(([phrase, count]) => count >= this.minCount)
+
+        const filtered = Object.entries(this.counts).filter(([phrase, count]) => count >= this.minPhraseLength)
         return filtered.length > 0;
     }
 
@@ -34,7 +35,7 @@ export class RepeatPhrases extends ICheck {
     }
 
     renderAdditional() {
-        const filtered = Object.entries(this.counts).filter(([word, count]) => count >= this.minCount)
+        const filtered = Object.entries(this.counts).filter(([word, count]) => count >= this.minPhraseLength)
         const output = filtered.map(([word, count]) => `<li>${word}: ${count}</li>`);
         return `<ul>${output.join('')}</ul>`;
     }
