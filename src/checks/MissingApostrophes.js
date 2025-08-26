@@ -12,7 +12,7 @@ export class MissingApostrophes extends ICheck {
         'hadnt', 'hasnt',
         'isnt',
         'mightve', 'mustnt',
-        'shed', 'shell', 'shouldnt',
+        'shed', 'shouldnt',
         'thats', 'theres', 'therell', 'theyd', 'theyll', 'theyve',
         'wasnt', 'weve', 'whos', 'wont', 'wouldnt', 'wouldve'
     ];
