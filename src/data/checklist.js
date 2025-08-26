@@ -1,4 +1,5 @@
 import { ExtraLineBreaks } from "@/checks/ExtraLineBreaks.js";
+import { InvalidCapitalization } from "@/checks/InvalidCapitalization.js";
 import { InvalidHtml } from "@/checks/InvalidHtml.js";
 import { InvalidWhitespace } from "@/checks/InvalidWhitespace.js";
 import { MissingApostrophes } from "@/checks/MissingApostrophes.js";
@@ -24,6 +25,7 @@ export const checklist = [
     new UnaccentedNames(),
     new RepeatWords(),
     new UnsmoothAttribution(),
+    new InvalidCapitalization(),
     new InvalidHtml(),
     new InvalidWhitespace(),
     new ExtraLineBreaks(),
