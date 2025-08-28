@@ -17,6 +17,7 @@ describe("FinalPunctuation", () => {
         expect(check.isInParagraph(`A valid paragraph...`)).toBe(false)
         expect(check.isInParagraph(`A valid paragraph—`)).toBe(false)
         expect(check.isInParagraph(`A valid paragraph:`)).toBe(false)
+        expect(check.isInParagraph(`(A valid paragraph.)`)).toBe(false)
 
         expect(check.isInParagraph(`"A valid quote."`)).toBe(false)
         expect(check.isInParagraph(`"A valid quote?"`)).toBe(false)
