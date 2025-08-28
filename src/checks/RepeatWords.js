@@ -17,6 +17,6 @@ export class RepeatWords extends ICheck {
     }
 
     render(paragraph) {
-        return `<span id="${this.id}" class="highlight-${this.style}">${paragraph}</span>`;
+        return `<span class="anchor-offset" id="${this.id}"></span><span class="highlight-${this.style}">${paragraph}</span>`;
     }
 }

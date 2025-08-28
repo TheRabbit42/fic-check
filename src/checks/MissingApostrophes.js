@@ -25,7 +25,7 @@ export class MissingApostrophes extends ICheck {
 
     render(paragraph) {
         for (let word of this.words) {
-            paragraph = paragraph.replace(word, `<span id="${this.id}" class="highlight-${this.style}">$&</span>`);
+            paragraph = paragraph.replace(word, `<span class="anchor-offset" id="${this.id}"></span><span class="highlight-${this.style}">$&</span>`);
         }
         return paragraph;
     }

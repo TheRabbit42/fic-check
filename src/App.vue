@@ -46,19 +46,32 @@ function renderParagraph(paragraph) {
 </script>
 
 <template>
-  <div class="input">
-    <textarea v-model="input" placeholder="Insert text"></textarea>
-    <div v-html="renderedInput" class="rendered"></div>
-  </div>
+  <div class="page">
+    <div class="fixed">
+      <header class="container">
+        <div class="input">
+          <textarea v-model="input" placeholder="Insert text"></textarea>
+        </div>
 
-  <div class="output">
-    <div class="actions">
-      <a href="#" @click="clear">Clear</a><span>&nbsp;|&nbsp;</span><a href="#" @click="paste">Paste</a>
+        <div class="messages">
+          <div class="actions">
+            <a href="#" @click="clear">Clear</a><span>&nbsp;|&nbsp;</span><a href="#" @click="paste">Paste</a>
+          </div>
+
+          <p v-for="msg in state.messages" :class="msg.style">
+            <a :href="msg.href">{{ msg.text }}</a>
+            <p v-html="msg.renderAdditional"></p>
+          </p>
+        </div>
+      </header>
     </div>
 
-    <p v-for="msg in state.messages" :class="msg.style">
-      <a :href="msg.href">{{ msg.text }}</a>
-      <p v-html="msg.renderAdditional"></p>
-    </p>
+    <div class="container">
+      <div v-html="renderedInput" class="rendered"></div>
+    </div>
+
+    <footer>
+      Made by <a href="https://www.daniel-jordan.com">Dan Jordan</a>
+    </footer>
   </div>
 </template>

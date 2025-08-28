@@ -12,6 +12,6 @@ export class InvalidCapitalization extends ICheck {
     }
 
     render(paragraph) {
-        return paragraph.replace(this.regex, `<span id="${this.id}" class="highlight-${this.style}">$&</span>`);
+        return paragraph.replace(this.regex, `<span class="anchor-offset" id="${this.id}"></span><span class=" anchor-offset highlight-${this.style}">$&</span>`);
     }
 }
