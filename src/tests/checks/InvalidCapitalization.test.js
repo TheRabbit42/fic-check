@@ -14,6 +14,12 @@ describe("InvalidCapitalization", () => {
         expect(check.isInParagraph(text)).toBe(true);
     });
 
+    it(`detects sentences starting with a quote and lowercase`, () => {
+        const text = `"a sentence that starts with a lowercase."`;
+        console.log(text);
+        expect(check.isInParagraph(text)).toBe(true);
+    });
+
     it(`detects multiple violations`, () => {
         const text = `Sentence. another sentence. and another.`;
         expect(check.isInParagraph(text)).toBe(true);

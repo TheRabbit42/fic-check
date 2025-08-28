@@ -5,7 +5,7 @@ export class InvalidCapitalization extends ICheck {
     message = 'Text free of invalid capitalization';
     style = 'error';
 
-    regex = /(^[a-z])|(\w[.!?]{1,2}\s[a-z])/g;
+    regex = /(^"?[a-z])|(\w[.!?]{1,2}\s[a-z])/g;
 
     isInParagraph(paragraph) {
         return (paragraph.match(this.regex) || []).length > 0;
