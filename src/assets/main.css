@@ -31,11 +31,9 @@ a,
 
 .rendered {
   background-color: #eee;
-  border: 1px solid black;
-  color: rgb(42, 42, 42);
-  font: 150%  'Lucida Grande','Lucida Sans Unicode',Verdana,Helvetica,sans-serif,'GNU Unifont';
-  height: 300px;
-  line-height: 50px;
+  border: 1px solid #ddd;
+  color: #404040;
+  font: 100%  'Lucida Grande','Lucida Sans Unicode',Verdana,Helvetica,sans-serif,'GNU Unifont';
   overflow: auto;
   padding: 20px;
 }
@@ -56,9 +54,8 @@ a,
 
 textarea {
   color: rgb(42, 42, 42);
-  font: 150%  'Lucida Grande','Lucida Sans Unicode',Verdana,Helvetica,sans-serif,'GNU Unifont';
+  font: 100%  'Lucida Grande','Lucida Sans Unicode',Verdana,Helvetica,sans-serif,'GNU Unifont';
   height: 100px;
-  line-height: 50px;
   max-width: 100%;
   padding: 20px;
   width: 800px;
@@ -67,6 +64,17 @@ textarea {
 button {
   height: 50px;
   width: 200px;
+}
+
+hr {
+  padding: 20px;
+  border: none;
+  text-align: center;
+  color: rgb(128, 128, 128);
+}
+
+hr::before {
+  content: "— «·» —";
 }
 
 #debug {
@@ -113,6 +121,11 @@ header {
 
   .input {
     margin-right: 1rem;
+  }
+
+  .output {
+    position: fixed;
+    right: 150px;
   }
 
   .actions {
