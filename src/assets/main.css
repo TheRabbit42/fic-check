@@ -132,6 +132,7 @@ button {
 
   .input {
     grid-column-end: span 8;
+    height: 109px;
   }
 
   .messages {
