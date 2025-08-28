@@ -67,17 +67,6 @@ button {
   width: 200px;
 }
 
-hr {
-  padding: 20px;
-  border: none;
-  text-align: center;
-  color: rgb(128, 128, 128);
-}
-
-hr::before {
-  content: "— «·» —";
-}
-
 #debug {
   height: 800px;
   width: 200px;

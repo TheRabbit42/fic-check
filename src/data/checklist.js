@@ -33,6 +33,5 @@ export const checklist = [
     new InvalidWhitespace(),
     new ExtraLineBreaks(),
     new QuoteSpacing,
-    //new OverusedWords(),
     new RepeatPhrases()
 ];

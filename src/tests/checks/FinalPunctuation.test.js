@@ -4,12 +4,8 @@ import { FinalPunctuation } from "../../checks/FinalPunctuation.js";
 describe("FinalPunctuation", () => {
     const check = new FinalPunctuation();
 
-    it(`detects paragraphs ending with nothing`, () => {
-        const text = `Sentence without final punctuation`;
-        expect(check.isInParagraph(text)).toBe(true);
-    });
-
-    it(`detects paragraphs ending with invalid punctuation`, () => {
+    it(`detects invalid endings`, () => {
+        expect(check.isInParagraph(`Sentence without final punctuation`)).toBe(true);
         expect(check.isInParagraph(`"Final comma in a quote,"`)).toBe(true);
         expect(check.isInParagraph(`"Final punctuation missing in a quote"`)).toBe(true);
     });
@@ -28,5 +24,8 @@ describe("FinalPunctuation", () => {
         expect(check.isInParagraph(`"A valid quote..."`)).toBe(false)
         expect(check.isInParagraph(`"A valid quote—"`)).toBe(false)
         expect(check.isInParagraph(`"A valid quote:"`)).toBe(false)
+
+        expect(check.isInParagraph(`<em>Emphasis!</em>`)).toBe(false)
+        expect(check.isInParagraph(`<hr/>`)).toBe(false)
     });
 });
