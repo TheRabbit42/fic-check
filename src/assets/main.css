@@ -159,11 +159,13 @@ button {
     border-style: solid;
   }
 
+  .input textarea:hover, .input textarea:active, .input textarea:focus {
+    border-color: gold;
+  }
+
   .input textarea:active, .input textarea:focus {
     background: #fff4cb;
-    border-radius: 1rem 0 0 1rem;
     outline: 0;
-    border-color: gold;
   }
 
   .rendered {
