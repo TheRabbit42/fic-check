@@ -8,35 +8,35 @@
     --color-theme-primary: #1ebed9;
 }
 body:has(.theme-blue) {
-    background: oklch(from #1ebed9 0.9 0.03 h);
+    background: oklch(from #1ebed9 0.9 0.02 h);
 }
 
 .theme-green {
     --color-theme-primary: #98db7a;
 }
 body:has(.theme-green) {
-    background: oklch(from #98db7a 0.9 0.03 h);
+    background: oklch(from #98db7a 0.9 0.02 h);
 }
 
 .theme-orange {
     --color-theme-primary: #ff915b;
 }
 body:has(.theme-orange) {
-    background: oklch(from #ff915b 0.9 0.03 h);
+    background: oklch(from #ff915b 0.9 0.02 h);
 }
 
 .theme-purple {
     --color-theme-primary: #b892f0;
 }
 body:has(.theme-purple) {
-    background: oklch(from #b892f0 0.9 0.03 h);
+    background: oklch(from #b892f0 0.9 0.02 h);
 }
 
 .theme-red {
     --color-theme-primary: #f78b8b;
 }
 body:has(.theme-red) {
-    background: oklch(from #f78b8b 0.9 0.03 h);
+    background: oklch(from #f78b8b 0.9 0.02 h);
 }
 
 .theme-yellow {
@@ -47,10 +47,11 @@ body:has(.theme-yellow) {
 }
 
 .themed {
+    --color-theme-page: oklch(from var(--color-theme-primary) calc(l * 1.5) c h);
     --color-theme-border: oklch(from var(--color-theme-primary) calc(l * .75) c h);
     --color-theme-gradient-start: var(--color-theme-primary);
-    --color-theme-gradient-end: oklch(from var(--color-theme-primary) calc(l * 1.25) c h);
+    --color-theme-gradient-end: oklch(from var(--color-theme-primary) calc(l * 1.5) c h);
 
-    header { background: linear-gradient(0deg, var(--color-theme-gradient-end) 0%, var(--color-theme-gradient-start) 100%); }
+    header { background: linear-gradient(0deg, var(--color-theme-gradient-start) 0%, var(--color-theme-gradient-end) 100%); }
     header, aside, textarea { border-color: var(--color-theme-border); }
 }
