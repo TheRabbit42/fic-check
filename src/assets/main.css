@@ -25,7 +25,7 @@ header {
 }
 
 main {
-  margin: 0rem 8em 0 8rem;
+  margin: 0rem 7em 0 7rem;
   background-color: var(--color-theme-page)
 }
 
@@ -146,7 +146,7 @@ nav > * {
     padding-left: 2rem;
     padding-right: 2rem;
     grid-template-columns: repeat(12, 1fr);
-    grid-gap: 0.5rem;
+    grid-gap: 2rem;
   }
 
   header {
@@ -154,12 +154,19 @@ nav > * {
   }
 
   aside {
-    margin-top: -2.5rem;
+    margin-top: -5rem;
     position: absolute;
     background: white;
     padding: 2rem 1rem 1rem 1rem;
     border-radius: 0 0 1rem 1rem;
     filter: drop-shadow(0 0 8px rgba(0,0,0,0.4));
+  }
+
+  aside > div {
+    padding: 2rem;
+    border: 3px dotted #ddd;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
   }
 
   textarea {
@@ -182,6 +189,14 @@ nav > * {
 
   main {
     filter: drop-shadow(0 0 8px rgba(0,0,0,0.4));
+  }
+
+  main > div {
+    border-width: 0 3px 0 3px;
+    border-style: dotted;
+    border-color: rgba(0, 0, 0, 0.1);
+    margin: 0 1rem 0 1rem;
+    padding: 0 1rem;
   }
 
   nav {

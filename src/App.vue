@@ -60,26 +60,30 @@ function renderParagraph(paragraph) {
 
         <div class="col-span-4">
           <aside>
-            <p v-if="state.messages.length === 0" class="info">
-              Run checks for common mistakes
-            </p>
-            <p v-for="msg in state.messages" :class="msg.style">
-              <a :href="msg.href">{{ msg.text }}</a>
-              <p v-html="msg.renderAdditional"></p>
-            </p>
+            <div>
+              <p v-if="state.messages.length === 0" class="info">
+                Run checks for common mistakes
+              </p>
+              <p v-for="msg in state.messages" :class="msg.style">
+                <a :href="msg.href">{{ msg.text }}</a>
+                <p v-html="msg.renderAdditional"></p>
+              </p>
+            </div>
           </aside>
         </div>
       </div>
     </header>
 
     <main>
-      <div class="container">
-        <article v-html="renderedInput"></article>
-      </div>
+      <div>
+        <div class="container">
+          <article v-html="renderedInput"></article>
+        </div>
 
-      <footer>
-        Made by <a href="https://www.daniel-jordan.com">Dan Jordan</a>
-      </footer>
+        <footer>
+          Made by <a href="https://www.daniel-jordan.com">Dan Jordan</a>
+        </footer>
+      </div>
     </main>
   </div>
 </template>
