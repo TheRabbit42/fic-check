@@ -18,7 +18,7 @@ export class UnaccentedNames extends ICheck {
 
     render(paragraph) {
         for (let word of this.accentedWords) {
-            paragraph = paragraph.replace(word, `<span class="anchor-offset" id="${this.id}"></span><span class="highlight-${this.style}">$&</span>`);
+            paragraph = paragraph.replace(word, `<mark class="anchor-offset" id="${this.id}"></mark><mark class="highlight-${this.style}">$&</mark>`);
         }
         return paragraph;
     }

@@ -40,20 +40,17 @@ body:has(.theme-red) {
 }
 
 .theme-yellow {
-    --color-theme-primary: #fff88b;
+    --color-theme-primary: rgb(254, 254, 124);
 }
 body:has(.theme-yellow) {
-    background: oklch(from #fff88b 0.9 0.03 h);
+    background: oklch(from rgb(254, 254, 124) 0.9 0.03 h);
 }
 
-.theme {
+.themed {
     --color-theme-border: oklch(from var(--color-theme-primary) calc(l * .75) c h);
     --color-theme-gradient-start: var(--color-theme-primary);
     --color-theme-gradient-end: oklch(from var(--color-theme-primary) calc(l * 1.25) c h);
 
-    .fixed { background: linear-gradient(0deg, var(--color-theme-gradient-start) 0%, var(--color-theme-gradient-end) 100%); }
-    .fixed, .messages, textarea { border-color: var(--color-theme-border); }
-    .messages {
-        filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.2));
-    }
+    header { background: linear-gradient(0deg, var(--color-theme-gradient-end) 0%, var(--color-theme-gradient-start) 100%); }
+    header, aside, textarea { border-color: var(--color-theme-border); }
 }

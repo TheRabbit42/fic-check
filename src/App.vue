@@ -48,32 +48,38 @@ function renderParagraph(paragraph) {
 </script>
 
 <template>
-  <div class="page theme" :class="state.theme">
-    <div class="fixed">
-      <header class="container">
-        <div class="input">
-          <textarea v-model="input" placeholder="Insert text"></textarea>
-        </div>
-
-        <div class="messages">
-          <div class="actions">
+  <div class="themed" :class="state.theme">
+    <header>
+      <div class="container">
+        <div class="col-span-8">
+          <textarea v-model="input" autofocus placeholder="Insert text"></textarea>
+          <nav>
             <a href="#" @click="clear">Clear</a><span>&nbsp;|&nbsp;</span><a href="#" @click="paste">Paste</a>
-          </div>
-
-          <p v-for="msg in state.messages" :class="msg.style">
-            <a :href="msg.href">{{ msg.text }}</a>
-            <p v-html="msg.renderAdditional"></p>
-          </p>
+          </nav>
         </div>
-      </header>
-    </div>
 
-    <div class="container">
-      <div v-html="renderedInput" class="rendered"></div>
-    </div>
+        <div class="col-span-4">
+          <aside>
+            <p v-if="state.messages.length === 0" class="info">
+              Run checks for common mistakes
+            </p>
+            <p v-for="msg in state.messages" :class="msg.style">
+              <a :href="msg.href">{{ msg.text }}</a>
+              <p v-html="msg.renderAdditional"></p>
+            </p>
+          </aside>
+        </div>
+      </div>
+    </header>
 
-    <footer>
-      Made by <a href="https://www.daniel-jordan.com">Dan Jordan</a>
-    </footer>
+    <main>
+      <div class="container">
+        <article v-html="renderedInput"></article>
+      </div>
+
+      <footer>
+        Made by <a href="https://www.daniel-jordan.com">Dan Jordan</a>
+      </footer>
+    </main>
   </div>
 </template>

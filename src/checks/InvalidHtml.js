@@ -31,10 +31,10 @@ export class InvalidHtml extends ICheck {
         for (let tag of this.tags) {
             if (this.isParaWithUnopenedTag(paragraph, tag)) {
                 let regex = new RegExp(`<\/${tag}>`, 'gi');
-                paragraph = paragraph.replace(regex, `<span class="anchor-offset" id="${this.id}"></span><span class="highlight-${this.style}">[${tag}]</span>$&`);
+                paragraph = paragraph.replace(regex, `<mark class="anchor-offset" id="${this.id}"></mark><mark class="highlight-${this.style}">[${tag}]</mark>$&`);
             } else if (this.isParaWithUnclosedTag(paragraph, tag)) {
                 let regex = new RegExp(`<${tag}>`, 'gi');
-                paragraph = paragraph.replace(regex, `[${tag}]$&<span class="anchor-offset" id="${this.id}"></span><span class="highlight-${this.style}"/>`);
+                paragraph = paragraph.replace(regex, `[${tag}]$&<mark class="anchor-offset" id="${this.id}"></mark><mark class="highlight-${this.style}"/>`);
             }
         }
 

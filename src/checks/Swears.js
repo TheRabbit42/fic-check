@@ -12,6 +12,6 @@ export class Swears extends ICheck {
     }
 
     render(paragraph) {
-        return paragraph.replace(this.regex, `<span class="anchor-offset" id="${this.id}"></span><span class="highlight-${this.style}">$&</span>`);
+        return paragraph.replace(this.regex, `<mark class="anchor-offset" id="${this.id}"></mark><mark class="highlight-${this.style}">$&</mark>`);
     }
 }
