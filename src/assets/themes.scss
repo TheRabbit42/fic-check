@@ -1,0 +1,39 @@
+:root {
+    --color-theme-primary: grey;
+}
+
+.theme-blue {
+    --color-theme-primary: #1ebed9;
+}
+
+.theme-green {
+    --color-theme-primary: #98db7a;
+}
+
+.theme-orange {
+    --color-theme-primary: #ff915b;
+}
+
+.theme-purple {
+    --color-theme-primary: #b892f0;
+}
+
+.theme-red {
+    --color-theme-primary: #f78b8b;
+}
+
+.theme-yellow {
+    --color-theme-primary: #fff88b;
+}
+
+.theme {
+    --color-theme-border: oklch(from var(--color-theme-primary) calc(l * .75) c h);
+    --color-theme-gradient-start: var(--color-theme-primary);
+    --color-theme-gradient-end: oklch(from var(--color-theme-primary) calc(l * 1.25) c h);
+
+    .fixed { background: linear-gradient(0deg, var(--color-theme-gradient-start) 0%, var(--color-theme-gradient-end) 100%); }
+    .fixed, .messages, textarea { border-color: var(--color-theme-border); }
+    .messages {
+        filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.2));
+    }
+}

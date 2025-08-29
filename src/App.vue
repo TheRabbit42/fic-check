@@ -1,9 +1,11 @@
 <script setup>
 import { reactive, ref, computed, watch } from 'vue'
 import { checklist } from "@/data/checklist.js"
+import { themes } from "@/data/themes.js"
 
 const input = ref('');
-const state = reactive({ messages: [] });
+const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+const state = reactive({ messages: [], theme: randomTheme });
 const console = computed(() => console);
 
 const renderedInput = computed(() => {
@@ -46,7 +48,7 @@ function renderParagraph(paragraph) {
 </script>
 
 <template>
-  <div class="page">
+  <div class="page theme" :class="state.theme">
     <div class="fixed">
       <header class="container">
         <div class="input">
