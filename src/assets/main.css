@@ -120,7 +120,7 @@ nav > * {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   footer, article {
     display: none;
   }
@@ -135,7 +135,7 @@ nav > * {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1000px) {
   body {
     display: flex;
     background: #ddd
