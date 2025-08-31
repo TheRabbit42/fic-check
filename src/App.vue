@@ -62,7 +62,7 @@ function renderParagraph(paragraph) {
           <aside>
             <div>
               <p v-if="state.messages.length === 0" class="info">
-                Run checks for common mistakes
+                check for common mistakes
               </p>
               <p v-for="msg in state.messages" :class="msg.style">
                 <a :href="msg.href">{{ msg.text }}</a>
@@ -77,7 +77,7 @@ function renderParagraph(paragraph) {
     <main>
       <div>
         <div class="container">
-          <article v-html="renderedInput"></article>
+          <article class="col-span-8" v-html="renderedInput"></article>
         </div>
 
         <footer>
