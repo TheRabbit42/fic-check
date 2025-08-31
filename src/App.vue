@@ -78,6 +78,7 @@ function renderParagraph(paragraph) {
       <div>
         <div class="container">
           <article class="col-span-8" v-html="renderedInput"></article>
+          <div class="col-span-4"></div>
         </div>
 
         <footer>

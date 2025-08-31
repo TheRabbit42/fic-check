@@ -26,7 +26,7 @@ header {
 
 main {
   margin: 0rem 7em 0 7rem;
-  background-color: var(--color-theme-page)
+  background-color: var(--color-page)
 }
 
 article {
@@ -115,7 +115,7 @@ nav > * {
 
 @media (hover: hover) {
   a:hover {
-    background-color: var(--color-theme-primary);
+    background-color: var(--color-primary);
   }
 }
 
