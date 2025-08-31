@@ -4,46 +4,45 @@
     initial-value: grey;
 }
 
-.theme-blue {
-    --color-theme-primary: #1ebed9;
-}
-body:has(.theme-blue) {
-    background: oklch(from #1ebed9 0.9 0.02 h);
-}
-
-.theme-green {
-    --color-theme-primary: #98db7a;
-}
-body:has(.theme-green) {
-    background: oklch(from #98db7a 0.9 0.02 h);
-}
-
-.theme-orange {
-    --color-theme-primary: #ff915b;
-}
-body:has(.theme-orange) {
-    background: oklch(from #ff915b 0.9 0.02 h);
-}
-
-.theme-purple {
-    --color-theme-primary: #b892f0;
-}
-body:has(.theme-purple) {
-    background: oklch(from #b892f0 0.9 0.02 h);
-}
 
 .theme-red {
     --color-theme-primary: #f78b8b;
 }
-body:has(.theme-red) {
-    background: oklch(from #f78b8b 0.9 0.02 h);
+.theme-orange {
+    --color-theme-primary: #ff915b;
 }
-
 .theme-yellow {
     --color-theme-primary: rgb(254, 254, 124);
 }
-body:has(.theme-yellow) {
-    background: oklch(from rgb(254, 254, 124) 0.9 0.03 h);
+.theme-green {
+    --color-theme-primary: #98db7a;
+}
+.theme-blue {
+    --color-theme-primary: #1ebed9;
+}
+.theme-purple {
+    --color-theme-primary: #b892f0;
+}
+
+@media (min-width: 1024px) {
+    body:has(.theme-red) {
+        background: oklch(from #f78b8b 0.9 0.02 h);
+    }
+    body:has(.theme-orange) {
+        background: oklch(from #ff915b 0.9 0.02 h);
+    }
+    body:has(.theme-yellow) {
+        background: oklch(from rgb(254, 254, 124) 0.9 0.03 h);
+    }
+    body:has(.theme-green) {
+        background: oklch(from #98db7a 0.9 0.02 h);
+    }
+    body:has(.theme-blue) {
+        background: oklch(from #1ebed9 0.9 0.02 h);
+    }
+    body:has(.theme-purple) {
+        background: oklch(from #b892f0 0.9 0.02 h);
+    }
 }
 
 .themed {
