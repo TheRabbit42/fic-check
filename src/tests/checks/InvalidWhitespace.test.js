@@ -6,6 +6,11 @@ describe("InvalidWhitespace", () => {
 
     const delimiters = ['.', ',', ';', '?', '!', ':'];
     delimiters.forEach((delimiter) => {
+        it(`detects extra whitespace before delimiter`, () => {
+            const text = `"Sentence with ${delimiter}And more`;
+            expect(check.isInParagraph(text)).toBe(true);
+        });
+
         it(`detects missing whitespace after delimiter`, () => {
             const text = `"Sentence with${delimiter}And more`;
             expect(check.isInParagraph(text)).toBe(true);
