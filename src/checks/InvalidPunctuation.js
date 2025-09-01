@@ -5,7 +5,7 @@ export class InvalidPunctuation extends ICheck {
     message = 'Text free of invalid punctuation';
     style = 'error';
 
-    regex = /\.{2}/g;
+    regex = /[^\.]\.\.[^\.]/g;
 
     isInParagraph(paragraph) {
         return (paragraph.match(this.regex) || []).length > 0;
