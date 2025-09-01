@@ -1,11 +1,11 @@
 import { ICheck } from "./ICheck.js";
 
-export class InvalidCapitalization extends ICheck {
-    id = "capitalization"
-    message = 'Text free of invalid capitalization';
+export class InvalidPunctuation extends ICheck {
+    id = "punctuation"
+    message = 'Text free of invalid punctuation';
     style = 'error';
 
-    regex = /(^"?[a-z])|(\w[.!?]{1,2}\s[a-z])/g;
+    regex = /\.{2}/g;
 
     isInParagraph(paragraph) {
         return (paragraph.match(this.regex) || []).length > 0;

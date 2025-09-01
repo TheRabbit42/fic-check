@@ -1,6 +1,7 @@
 import { ExtraLineBreaks } from "@/checks/ExtraLineBreaks.js";
 import { InvalidCapitalization } from "@/checks/InvalidCapitalization.js";
 import { InvalidHtml } from "@/checks/InvalidHtml.js";
+import { InvalidPunctuation } from "@/checks/InvalidPunctuation.js";
 import { InvalidWhitespace } from "@/checks/InvalidWhitespace.js";
 import { MissingApostrophes } from "@/checks/MissingApostrophes.js";
 import { OverusedWords } from "@/checks/OverusedWords.js";
@@ -30,6 +31,7 @@ export const checklist = [
     new UnsmoothAttribution(),
     new InvalidCapitalization(),
     new InvalidHtml(),
+    new InvalidPunctuation(),
     new InvalidWhitespace(),
     new ExtraLineBreaks(),
     new QuoteSpacing,
