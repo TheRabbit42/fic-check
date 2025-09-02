@@ -12,7 +12,7 @@ const renderedInput = computed(() => {
   const extraBreakRegex = /\n{3,}/gim;
 
   return input.value
-      .replace(extraBreakRegex, '<span id="linebreaks" class="highlight-error">BREAK</span>')
+      .replace(extraBreakRegex, '<mark class="anchor-offset" id="linebreaks"></mark><mark class="highlight-error">BREAK</mark>')
       .split(/\n\s*\n/).filter(Boolean)
       .map((paragraph) => renderParagraph(paragraph)).join('');
 });
