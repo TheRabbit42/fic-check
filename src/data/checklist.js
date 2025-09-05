@@ -16,6 +16,7 @@ import { UnsmoothAttribution } from "@/checks/UnsmoothAttribution.js";
 import { WordCount } from "@/checks/WordCount.js";
 import { WordCountMultiple } from "@/checks/WordCountMultiple.js";
 import { FinalPunctuation } from "@/checks/FinalPunctuation.js";
+import {ApostropheQuote} from "@/checks/ApostropheQuote.js";
 
 export const checklist = [
     new WordCount,
@@ -33,6 +34,7 @@ export const checklist = [
     new SmartQuotes(),
     new Swears(),
     new MissingApostrophes(),
+    new ApostropheQuote(),
     new FinalPunctuation(),
     new UnaccentedNames(),
     new InvalidHtml(),
