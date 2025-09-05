@@ -39,6 +39,8 @@ export class OverusedWords extends ICheck {
         const filtered = Object.entries(this.counts)
             .filter(([word, count]) => count >= this.minCount)
             .map(([word, count]) => word);
+        if (filtered.length === 0) return paragraph;
+
         const joined = filtered.join('|');
         const regex = new RegExp(`\\b(${joined})\\b`, 'gi');
         return paragraph.replace(regex, (match) => this.genericHighlight(match));

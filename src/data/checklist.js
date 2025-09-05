@@ -37,6 +37,6 @@ export const checklist = [
     new InvalidHtml(),
     new InvalidPunctuation(),
     new ExtraLineBreaks(),
-    new RepeatPhrases(),
     new OverusedWords(),
+    new RepeatPhrases(),
 ];

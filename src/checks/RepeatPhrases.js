@@ -38,6 +38,8 @@ export class RepeatPhrases extends ICheck {
         const filtered = Object.entries(this.counts)
             .filter(([phrase, count]) => count >= this.minPhraseLength)
             .map(([phrase, count]) => phrase);
+        if (filtered.length === 0) return paragraph;
+
         const joinedPhrases = filtered.join('|');
         const regex = new RegExp(`\\b(${joinedPhrases})\\b`, 'gi');
         return paragraph.replace(regex, (match) => this.genericHighlight(match));
