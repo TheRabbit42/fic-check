@@ -22,7 +22,7 @@ export class OverusedWords extends ICheck {
 
             for (const word of words) {
                 const word2 = word.toLowerCase().replace(/[^A-Za-z0-9]/g, '')
-                if (!word2.endsWith('ly')) continue;
+                if (!(word2.endsWith('ly') || word2.endsWith('ic') || word2.endsWith('y'))) continue;
                 if (word2.length < this.minLength) continue;
                 if (names.includes(word2)) continue;
                 if (trivialWords.includes(word2)) continue;
