@@ -1,20 +1,32 @@
 <script setup>
 import { reactive, ref, computed, watch } from 'vue'
 import { checklist } from "@/data/checklist.js"
+import { ExtraLineBreaks } from "@/checks/ExtraLineBreaks.js"
 import { themes } from "@/data/themes.js"
 
 const input = ref('');
 const randomTheme = themes[Math.floor(Math.random() * themes.length)];
-const state = reactive({ messages: [], theme: randomTheme });
-const console = computed(() => console);
+const state = reactive({
+  messages: [],
+  lastCheckId: null,
+  lastCheckIndex: 0,
+  theme: randomTheme
+});
+const breakChecker = new ExtraLineBreaks();
 
 const renderedInput = computed(() => {
   const extraBreakRegex = /\n{3,}/gim;
 
+  let breakCounter = 0;
+  checklist.forEach((check) => check.reset());
+  breakChecker.reset();
+
   return input.value
-      .replace(extraBreakRegex, '<mark class="anchor-offset" id="linebreaks"></mark><mark class="highlight-error">BREAK</mark>')
-      .split(/\n\s*\n/).filter(Boolean)
-      .map((paragraph) => renderParagraph(paragraph)).join('');
+      .replace(extraBreakRegex, (match) => breakChecker.genericHighlight(match))
+      .split(/\n\s*\n/)
+      .filter(Boolean)
+      .map((paragraph) => renderParagraph(paragraph))
+      .join('');
 });
 
 const paragraphs = computed(() => {
@@ -29,6 +41,29 @@ function clear(event) {
   input.value = '';
 }
 
+function clickedCheck(check) {
+  if (check.id === state.lastCheckId) {
+    state.lastCheckIndex++;
+  } else {
+    state.lastCheckId = check.id;
+    state.lastCheckIndex = 0;
+  }
+
+  // Handle rollover
+  let id = `${state.lastCheckId}-${state.lastCheckIndex}`;
+  let element = document.getElementById(id)
+  if (element == null) {
+    state.lastCheckIndex = 0;
+    id = `${state.lastCheckId}-${state.lastCheckIndex}`;
+    element = document.getElementById(id)
+  }
+
+  // Focus
+  if (element != null) {
+    element.focus();
+  }
+}
+
 async function paste(event) {
   try {
     const text = await navigator.clipboard.readText()
@@ -40,7 +75,7 @@ async function paste(event) {
 function renderParagraph(paragraph) {
   for (let check of checklist) {
     if (check.isInParagraph(paragraph)) {
-      paragraph = check.render(paragraph);
+      paragraph = check.renderParagraph(paragraph);
     }
   }
   return `<p>${paragraph}</p>`;
@@ -65,7 +100,7 @@ function renderParagraph(paragraph) {
                 check for common mistakes
               </p>
               <p v-for="msg in state.messages" :class="msg.style">
-                <a :href="msg.href">{{ msg.text }}</a>
+                <a @click="clickedCheck(msg)">{{ msg.text }}</a>
                 <p v-html="msg.renderAdditional"></p>
               </p>
             </div>

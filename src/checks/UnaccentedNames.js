@@ -11,15 +11,14 @@ export class UnaccentedNames extends ICheck {
     ];
 
     isInParagraph(paragraph) {
-        return this.accentedWords.some((word) => {
-            return (paragraph.match(word) || []).length > 0;
-        });
+        const joinedWords = this.accentedWords.join('|');
+        const regex = new RegExp(`\\b(${joinedWords})\\b`, 'gi');
+        return (paragraph.match(regex) || []).length > 0;
     }
 
-    render(paragraph) {
-        for (let word of this.accentedWords) {
-            paragraph = paragraph.replace(word, `<mark class="anchor-offset" id="${this.id}"></mark><mark class="highlight-${this.style}">$&</mark>`);
-        }
-        return paragraph;
+    renderParagraph(paragraph) {
+        const joinedWords = this.accentedWords.join('|');
+        const regex = new RegExp(`\\b(${joinedWords})\\b`, 'gi');
+        return paragraph.replace(regex, (match) => this.genericHighlight(match));
     }
 }

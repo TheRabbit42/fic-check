@@ -22,7 +22,7 @@ export class WordCountMultiple extends ICheck {
 
         s = s.replace(/\n/gi, ' '); // split on new lines
         s = s.replace(/[ ]{2,}/gi, " "); // 2 or more space to 1
-        return s.split(' ').filter(function(str){ return str != ''; }).length
+        return s.split(' ').filter(function(str){ return str !== ''; }).length
     }
 
     isInAnyParagraph(paragraphs) {
@@ -32,6 +32,7 @@ export class WordCountMultiple extends ICheck {
     getMessage(input, paragraphs){
         return(
             {
+                id: this.id,
                 text: this.message,
                 style: this.wordCount(input) % 500 > 0 ? this.style : 'success',
                 href: `#${this.id}`

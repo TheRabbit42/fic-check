@@ -2,6 +2,11 @@ export class ICheck {
     id = ''
     message = '';
     style = '';
+    matchCount = 0;
+
+    reset() {
+        this.matchCount = 0;
+    }
 
     isInAnyParagraph(paragraphs) {
         return paragraphs.some((paragraph) => this.isInParagraph(paragraph))
@@ -14,6 +19,7 @@ export class ICheck {
     getMessage(input, paragraphs){
         return(
             {
+                id: this.id,
                 text: this.message,
                 style: this.isInAnyParagraph(paragraphs) ? this.style : 'success',
                 href: `#${this.id}`,
@@ -22,7 +28,15 @@ export class ICheck {
         )
     }
 
+    renderParagraph(paragraph) {
+        return paragraph;
+    }
+
     renderAdditional() {
         return '';
+    }
+
+    genericHighlight(wrappedContent) {
+        return `<a href="#" id="${this.id}-${this.matchCount++}" class="highlight highlight-${this.style}">${wrappedContent}</a>`;
     }
 }

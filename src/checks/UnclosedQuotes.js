@@ -11,7 +11,7 @@ export class UnclosedQuotes extends ICheck {
         return (paragraph.match(this.regex) || []).length % 2 > 0;
     }
 
-    render(paragraph) {
-        return paragraph.replace(this.regex, `<mark class="anchor-offset" id="${this.id}"></mark><mark class="highlight-${this.style}">$&</mark>`);
+    renderParagraph(paragraph) {
+        return paragraph.replace(this.regex, (match) => this.genericHighlight(match));
     }
 }

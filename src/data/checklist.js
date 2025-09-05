@@ -20,20 +20,23 @@ import { FinalPunctuation } from "@/checks/FinalPunctuation.js";
 export const checklist = [
     new WordCount,
     new WordCountMultiple(),
+
+    // Do early, since subsequent errors affect whitespace
+    new InvalidWhitespace(),
+    new QuoteSpacing,
+
+    // The rest
     new UnclosedQuotes(),
     new Swears(),
     new SmartQuotes(),
     new MissingApostrophes(),
     new FinalPunctuation(),
     new UnaccentedNames(),
-    new RepeatWords(),
-    //new OverusedWords(),
     new UnsmoothAttribution(),
     new InvalidCapitalization(),
     new InvalidHtml(),
     new InvalidPunctuation(),
-    new InvalidWhitespace(),
     new ExtraLineBreaks(),
-    new QuoteSpacing,
-    new RepeatPhrases()
+    new RepeatPhrases(),
+    new OverusedWords(),
 ];

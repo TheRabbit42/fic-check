@@ -35,7 +35,6 @@ article {
   overflow: auto;
 }
 
-
 a,
 .green {
   color: inherit;
@@ -48,14 +47,22 @@ a,
   color: hsla(160, 100%, 37%, 1);
 }
 
+.highlight {
+  padding: 4px;
+  pointer-events: none;
+}
+
+.highlight:focus, .highlight:active {
+  outline: 4px solid cyan;
+  border-radius: 5px;
+}
+
 .highlight-error {
   background-color: red;
-  padding: 5px;
 }
 
 .highlight-warning {
   background-color: yellow;
-  padding: 5px;
 }
 
 article p {
@@ -86,6 +93,10 @@ button {
 
 nav > * {
   float: right;
+}
+
+a:hover {
+  cursor: pointer
 }
 
 .success {
@@ -217,12 +228,6 @@ nav > * {
     font-size: 110%;
     font-weight: bold;
     text-align: center;
-  }
-
-  .anchor-offset {
-    position: relative;
-    visibility: hidden;
-    top: -15rem;
   }
 
   footer {

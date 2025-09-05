@@ -1,4 +1,4 @@
-import { ICheck } from "@/checks/ICheck.js";
+import { ICheck } from "./ICheck.js";
 
 export class ExtraLineBreaks extends ICheck {
     id = 'linebreaks';
@@ -14,10 +14,15 @@ export class ExtraLineBreaks extends ICheck {
 
         return(
             {
+                id: this.id,
                 text: this.message,
                 style: extraLineBreaks.length > 0 ? this.style : 'success',
                 href: `#${this.id}`
             }
         )
+    }
+
+    genericHighlight(wrappedContent) {
+        return `${wrappedContent}<br/><a href="#" id="${this.id}-${this.matchCount++}" class="highlight highlight-${this.style}">BREAK</a>`;
     }
 }

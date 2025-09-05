@@ -9,6 +9,10 @@ export class RepeatPhrases extends ICheck {
     minPhraseLength = 3;
     minWordLength = 3;
 
+    isInParagraph(paragraph) {
+        return true;
+    }
+
     isInAnyParagraph(paragraphs) {
         this.counts = {}
         for (const paragraph of paragraphs) {
@@ -21,17 +25,22 @@ export class RepeatPhrases extends ICheck {
                     phrase += `${words[i+j]} `;
                 }
 
-                this.counts[phrase] = this.counts[phrase] || 0;
-                this.counts[phrase] += 1;
+                this.counts[phrase.trim()] = this.counts[phrase.trim()] || 0;
+                this.counts[phrase.trim()] += 1;
             }
         }
 
-        const filtered = Object.entries(this.counts).filter(([phrase, count]) => count >= this.minPhraseLength)
+        const filtered = Object.entries(this.counts).filter(([phrase, count]) => count >= this.minPhraseLength);
         return filtered.length > 0;
     }
 
-    render(paragraph) {
-        return `<mark class="anchor-offset" id="${this.id}"></mark><mark class="highlight-${this.style}">${paragraph}</mark>`;
+    renderParagraph(paragraph) {
+        const filtered = Object.entries(this.counts)
+            .filter(([phrase, count]) => count >= this.minPhraseLength)
+            .map(([phrase, count]) => phrase);
+        const joinedPhrases = filtered.join('|');
+        const regex = new RegExp(`\\b(${joinedPhrases})\\b`, 'gi');
+        return paragraph.replace(regex, (match) => this.genericHighlight(match));
     }
 
     renderAdditional() {

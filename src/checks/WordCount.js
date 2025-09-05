@@ -33,6 +33,7 @@ export class WordCount extends ICheck {
     getMessage(input, paragraphs){
         return(
             {
+                id: this.id,
                 text: `${this.wordCount(input)} words`,
                 style: '',
                 href: `#${this.id}`
