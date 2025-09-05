@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class InvalidHtml extends ICheck {
     id = 'html';
-    message = 'Text free of invalid html';
+    message = 'No invalid HTML';
     style = 'error';
     tags = ['em', 'strong', 'li']
 

@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class RepeatPhrases extends ICheck {
     id = "repeatphrase"
-    message = 'Text free of repeat phrases';
+    message = 'No repeat phrases';
     style = 'warning';
 
     counts = {}

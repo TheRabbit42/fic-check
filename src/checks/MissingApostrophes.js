@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class MissingApostrophes extends ICheck {
     id = 'apostrophes'
-    message = 'Text free of missing apostrophes';
+    message = 'No missing apostrophes';
     style = 'error';
 
     words = [

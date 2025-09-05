@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class SmartQuotes extends ICheck {
     id = "accent"
-    message = 'Text free of smart quotes';
+    message = 'No smart quotes';
     style = 'error';
 
     regex = /[‘’’“”]/gi;

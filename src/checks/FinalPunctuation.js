@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class FinalPunctuation extends ICheck {
     id = "finalpunc"
-    message = 'Text free of invalid final punctuation';
+    message = 'No missing final punctuation';
     style = 'error';
 
     regex = /([^\n\r!?:—.")>]"?$)|([^\n\r!?:—.")>]"?(?:<\/?\w*\/?>"?)$)/gi;

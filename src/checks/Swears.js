@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class Swears extends ICheck {
     id = 'swear';
-    message = 'Text free of swears';
+    message = 'No swears';
     style = 'warning';
 
     regex = /bitch|cunt|fuck|shit/gi;

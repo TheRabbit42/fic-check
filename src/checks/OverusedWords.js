@@ -4,7 +4,7 @@ import { trivialWords } from "@/data/trivialWords.js";
 
 export class OverusedWords extends ICheck {
     id = "overused"
-    message = 'Text free of overused words';
+    message = 'No overused words';
     style = 'warning';
 
     counts = {}

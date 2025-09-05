@@ -2,7 +2,7 @@ import { ICheck } from "./ICheck.js";
 
 export class UnsmoothAttribution extends ICheck {
     id = 'attribution';
-    message = 'Text free of unsmooth attributions';
+    message = 'No awkward attributions';
     style = 'warning';
     
     regex = /[?!]" [A-Z][ A-z]+ (said|asked)/g;

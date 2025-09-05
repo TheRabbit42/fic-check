@@ -71,16 +71,35 @@ a:hover {
 }
 
 aside {
+  .success, .warning, .error {
+    &:before {
+      display: inline-block;
+      padding: 0 8px 0 2px;
+    }
+  }
+
   .success {
     color: green;
+
+    &:before {
+      content: '\2714';
+    }
   }
 
   .warning {
     color: orange;
+
+    &:before {
+      content: '\25C9';
+    }
   }
 
   .error {
     color: red;
+
+    &:before {
+      content: '\2718';
+    }
   }
 }
 
