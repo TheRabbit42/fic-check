@@ -57,7 +57,7 @@
   }
 
   header, aside, main, article {
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 0.5rem var(--color-shadow);
   }
 
   textarea {
@@ -105,8 +105,10 @@
   }
 
   footer {
-    font-size: 90%;
+    font-size: 95%;
+    color: rgba(0, 0, 0, 0.25);
     text-align: center;
     padding: 2rem 0 2rem 0;
+    font-weight: bold !important;
   }
 }

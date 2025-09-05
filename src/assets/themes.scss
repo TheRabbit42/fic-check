@@ -8,6 +8,7 @@
     --brightness-multi-background: 85%;
     --brightness-multi-page: 50%;
     --brightness-multi-border: 20%;
+    --brightness-multi-shadow: 25%;
 
     --color-red: Tomato;
     --color-orange: DarkOrange;
@@ -58,10 +59,11 @@
 }
 
 .themed {
-    --color-page: color-mix(in oklab, var(--color-primary), white var(--brightness-multi-page));
     --color-border: color-mix(in oklab, var(--color-primary), black var(--brightness-multi-border));
+    --color-page: color-mix(in oklab, var(--color-primary), white var(--brightness-multi-page));
     --color-header-start: var(--color-primary);
     --color-header-end: color-mix(in oklab, var(--color-primary), white 90%);
+    --color-shadow: color-mix(in oklab, var(--color-page), black var(--brightness-multi-shadow));
 
     header { background: linear-gradient(0deg, var(--color-header-start) 0%, var(--color-header-end) 100%); }
     header, aside, textarea { border-color: var(--color-border); }
