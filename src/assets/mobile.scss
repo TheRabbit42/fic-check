@@ -1,0 +1,14 @@
+@media screen and (max-width: 1000px) {
+  footer, article {
+    display: none;
+  }
+
+  aside {
+    position: absolute;
+    top: 12rem;
+  }
+
+  header {
+    padding: 0.5rem;
+  }
+}

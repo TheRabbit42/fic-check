@@ -1,0 +1,90 @@
+@media (min-width: 1000px) {
+  body {
+    display: flex;
+    background: #ddd
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+    padding: 0 1rem 0 1rem;
+  }
+
+  header {
+    padding-top: 1rem;
+
+    nav {
+      display: none;
+    }
+  }
+
+  header > div, main {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+  aside {
+    margin-top: -4.5rem;
+    position: absolute;
+    background: white;
+    padding: 2rem 1rem 1rem 1rem;
+    border-radius: 0 0 1rem 1rem;
+
+    & > div {
+      padding: 2rem;
+      border: 3px dotted #ddd;
+      border-radius: 0.5rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  header, aside, main, article {
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+  }
+
+  textarea {
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem 0 0 1rem;
+    border-width: 2px;
+    border-style: solid;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+
+    &:active, &:focus {
+      background: #fff4cb;
+      outline: 0;
+    }
+
+    &:hover, &:active, :focus {
+      border-color: gold;
+    }
+  }
+
+  main > div {
+    border-width: 0 3px 0 3px;
+    border-style: dotted;
+    border-color: rgba(0, 0, 0, 0.1);
+    margin: 0 1rem 0 1rem;
+    padding: 0 2rem 0 2rem;
+  }
+
+  article {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  .info {
+    color: #ddd;
+    margin: 5rem 1rem 5rem 1rem;
+    font-size: 110%;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 0 2rem 0;
+  }
+}
