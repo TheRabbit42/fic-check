@@ -4,10 +4,26 @@
     background: #ddd
   }
 
+  .themed {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: start;
+    width: 1100px;
+  }
+
   .container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 1rem;
+    height: 100%;
     padding: 0 1rem 0 1rem;
   }
 
@@ -25,17 +41,18 @@
   }
 
   aside {
-    margin-top: -4.5rem;
-    position: absolute;
     background: white;
-    padding: 2rem 1rem 1rem 1rem;
     border-radius: 0 0 1rem 1rem;
+    margin-top: -4rem;
+    padding: 2rem 1rem 1rem 1rem;
+    position: absolute;
+    width: 19.5rem;
 
     & > div {
-      padding: 2rem;
       border: 3px dotted #ddd;
       border-radius: 0.5rem;
       margin-top: 0.5rem;
+      padding: 1rem;
     }
   }
 
@@ -62,6 +79,10 @@
   }
 
   main > div {
+    flex: 1;
+  }
+
+  main > div, footer {
     border-width: 0 3px 0 3px;
     border-style: dotted;
     border-color: rgba(0, 0, 0, 0.1);
@@ -75,15 +96,16 @@
     border-radius: 0 0 1rem 1rem;
   }
 
-  .info {
-    color: #ddd;
+  .placeholder-text {
     margin: 5rem 1rem 5rem 1rem;
-    font-size: 110%;
-    font-weight: bold;
+    font: 300% 'Arial', 'Verdana', 'Helvetica', sans-serif;
+    font-weight: bolder;
     text-align: center;
+    color: rgba(0.5, 0.5, 0.5, 0.15)
   }
 
   footer {
+    font-size: 90%;
     text-align: center;
     padding: 2rem 0 2rem 0;
   }

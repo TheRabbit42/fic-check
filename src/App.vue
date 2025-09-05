@@ -95,10 +95,12 @@ function renderParagraph(paragraph) {
 
         <div class="col-span-4">
           <aside>
-            <div>
-              <p v-if="state.messages.length === 0" class="info">
-                check for common mistakes
+            <div v-if="renderedInput === ''" >
+              <p class="placeholder-text">
+                check for<br/>common<br/>mistakes
               </p>
+            </div>
+            <div v-if="renderedInput !== ''" >
               <p v-for="msg in state.messages" :class="msg.style">
                 <a @click="clickedCheck(msg)">{{ msg.text }}</a>
                 <p v-html="msg.renderAdditional"></p>
@@ -112,14 +114,20 @@ function renderParagraph(paragraph) {
     <main>
       <div>
         <div class="container">
-          <article class="col-span-8" v-html="renderedInput"></article>
+          <article v-if="renderedInput === ''" class="col-span-8">
+            <p class="placeholder-text">
+              see how the<br/>
+              text will look<br/>
+              when rendered
+            </p>
+          </article>
+          <article v-if="renderedInput !== ''" class="col-span-8" v-html="renderedInput"></article>
           <div class="col-span-4"></div>
         </div>
-
-        <footer>
-          Made by <a href="https://www.daniel-jordan.com">Dan Jordan</a>
-        </footer>
       </div>
+      <footer>
+        Made by <a href="https://www.daniel-jordan.com">Dan Jordan</a>
+      </footer>
     </main>
   </div>
 </template>
