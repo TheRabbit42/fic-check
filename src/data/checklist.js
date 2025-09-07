@@ -16,7 +16,8 @@ import { UnsmoothAttribution } from "@/checks/UnsmoothAttribution.js";
 import { WordCount } from "@/checks/WordCount.js";
 import { WordCountMultiple } from "@/checks/WordCountMultiple.js";
 import { FinalPunctuation } from "@/checks/FinalPunctuation.js";
-import {ApostropheQuote} from "@/checks/ApostropheQuote.js";
+import { SingleCharacterEllipses } from "@/checks/SingleCharacterEllipses.js";
+import { ApostropheQuote } from "@/checks/ApostropheQuote.js";
 
 export const checklist = [
     new WordCount,
@@ -39,6 +40,9 @@ export const checklist = [
     new UnaccentedNames(),
     new InvalidHtml(),
     new ExtraLineBreaks(),
+    new SingleCharacterEllipses(),
+
+    // Checks that produce lists
     new OverusedWords(),
     new RepeatPhrases(),
 ];
