@@ -1,14 +1,14 @@
 import { ICheck } from "./ICheck.js";
 
 export class SmartQuotes extends ICheck {
-    id = "accent"
+    id = "smartquotes"
     message = 'No smart quotes';
     style = 'error';
 
     regex = /[‘’’“”]/gi;
 
     isInParagraph(paragraph) {
-        return (paragraph.match(this.regex) || []).length % 2 > 0;
+        return (paragraph.match(this.regex) || []).length > 0;
     }
 
     renderParagraph(paragraph) {
