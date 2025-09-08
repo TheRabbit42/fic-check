@@ -1,14 +1,14 @@
-import { ICheck } from "@/checks/ICheck.js";
-import { names } from "@/data/names.js";
-import { trivialWords } from "@/data/trivialWords.js";
+import { ICheck } from "./ICheck.js";
+import { names } from "../data/names.js";
+import { trivialWords } from "../data/trivialWords.js";
 
 export class OverusedWords extends ICheck {
-    id = "overused"
+    id = "OverusedWords"
     message = 'No overused words';
     style = 'warning';
 
     counts = {}
-    minCount = 3;
+    minCount = 5;
     minLength = 5;
 
     isInParagraph(paragraph) {
@@ -20,15 +20,14 @@ export class OverusedWords extends ICheck {
         for (const paragraph of paragraphs) {
             let words = paragraph.split(' ')
 
-            for (const word of words) {
-                const word2 = word.toLowerCase().replace(/[^A-Za-z0-9]/g, '')
-                if (!(word2.endsWith('ly') || word2.endsWith('ic') || word2.endsWith('y'))) continue;
-                if (word2.length < this.minLength) continue;
-                if (names.includes(word2)) continue;
-                if (trivialWords.includes(word2)) continue;
+            for (let word of words) {
+                word = word.toLowerCase().replace(/[.,":;?!]/, '');
+                if (word.length < this.minLength) continue;
+                if (names.includes(word)) continue;
+                if (trivialWords.includes(word)) continue;
 
-                this.counts[word2] = this.counts[word2] || 0;
-                this.counts[word2] += 1;
+                this.counts[word] = this.counts[word] || 0;
+                this.counts[word] += 1;
             }
         }
         const filtered = Object.entries(this.counts).filter(([word, count]) => count >= this.minCount)
