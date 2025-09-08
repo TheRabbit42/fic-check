@@ -9,6 +9,16 @@ describe("OverusedAdverbs", () => {
         expect(check.isInAnyParagraph(paragraphs)).toBe(true);
     });
 
+    it('detects multiple words regardless of commas', () => {
+        const paragraphs = [`It was really, really cool!`];
+        expect(check.isInAnyParagraph(paragraphs)).toBe(true);
+    });
+
+    it('detects multiple words regardless of punctuation', () => {
+        const paragraphs = [`It was ultra-really and ultra-really superduper!`];
+        expect(check.isInAnyParagraph(paragraphs)).toBe(true);
+    });
+
     it('detects multiple words ending in -ly', () => {
         const paragraphs = [`It was mischievously and mischievously!`];
         expect(check.isInAnyParagraph(paragraphs)).toBe(true);

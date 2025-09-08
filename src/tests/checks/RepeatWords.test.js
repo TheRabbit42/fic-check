@@ -9,6 +9,11 @@ describe("RepeatWords", () => {
         expect(check.isInParagraph(text)).toBe(true);
     });
 
+    it(`ignores html repeat words`, () => {
+        const text = `Sentence with <em>repeat</em> repeat repeat words.`;
+        expect(check.isInParagraph(text)).toBe(true);
+    });
+
     it(`ignores non repeat words`, () => {
         const text = `Sentence with no repeat words.`;
         expect(check.isInParagraph(text)).toBe(false);
