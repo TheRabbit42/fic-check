@@ -5,6 +5,7 @@ import { InvalidPunctuation } from "@/checks/InvalidPunctuation.js";
 import { InvalidWhitespace } from "@/checks/InvalidWhitespace.js";
 import { MissingApostrophes } from "@/checks/MissingApostrophes.js";
 import { OverusedWords } from "@/checks/OverusedWords.js";
+import { OverusedAdverbs } from "@/checks/OverusedAdverbs.js";
 import { QuoteSpacing } from "@/checks/QuoteSpacing.js";
 import { RepeatPhrases } from "@/checks/RepeatPhrases.js";
 import { RepeatWords } from "@/checks/RepeatWords.js";
@@ -43,6 +44,7 @@ export const checklist = [
     new SingleCharacterEllipses(),
 
     // Checks that produce lists
+    new OverusedAdverbs(),
     new OverusedWords(),
     new RepeatPhrases(),
 ];
