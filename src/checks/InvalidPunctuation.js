@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class InvalidPunctuation extends ICheck {
-    id = "punctuation"
     message = 'Proper punctuation';
     style = 'error';
 

@@ -3,7 +3,6 @@ import { names } from "../data/names.js";
 import { trivialWords } from "../data/trivialWords.js";
 
 export class OverusedWords extends ICheck {
-    id = "OverusedWords"
     message = 'No overused words';
     style = 'warning';
 

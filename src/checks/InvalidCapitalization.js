@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class InvalidCapitalization extends ICheck {
-    id = "capitalization"
     message = 'Proper capitalization';
     style = 'error';
 

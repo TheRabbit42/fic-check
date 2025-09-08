@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class FinalPunctuation extends ICheck {
-    id = "finalpunc"
     message = 'No missing final punctuation';
     style = 'error';
 

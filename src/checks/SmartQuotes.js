@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class SmartQuotes extends ICheck {
-    id = "smartquotes"
     message = 'No smart quotes';
     style = 'error';
 

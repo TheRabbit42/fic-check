@@ -1,4 +1,4 @@
-import { ICheck } from "@/checks/ICheck.js";
+import { ICheck } from "./ICheck.js";
 
 export class WordCountMultiple extends ICheck {
     message = 'Word count is a multiple of 500';

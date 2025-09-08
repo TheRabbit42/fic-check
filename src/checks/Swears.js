@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class Swears extends ICheck {
-    id = 'swear';
     message = 'No swears';
     style = 'warning';
 

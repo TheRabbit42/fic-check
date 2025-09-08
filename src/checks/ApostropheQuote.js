@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class ApostropheQuote extends ICheck {
-    id = "apostquote"
     message = 'No apostrophes beside quotes';
     style = 'error';
 

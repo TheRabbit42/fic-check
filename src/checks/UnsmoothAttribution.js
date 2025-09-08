@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class UnsmoothAttribution extends ICheck {
-    id = 'attribution';
     message = 'No awkward attributions';
     style = 'warning';
     

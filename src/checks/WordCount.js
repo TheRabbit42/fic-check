@@ -1,7 +1,6 @@
-import { ICheck } from "@/checks/ICheck.js";
+import { ICheck } from "./ICheck.js";
 
 export class WordCount extends ICheck {
-    id = 'wordcount';
     message = 'Word count';
     style = 'error';
 

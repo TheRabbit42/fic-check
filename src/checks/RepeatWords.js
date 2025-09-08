@@ -1,8 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class RepeatWords extends ICheck {
-    id = "repeatword"
-    message = 'No repeat words';
     style = 'warning';
 
     isInParagraph(paragraph) {

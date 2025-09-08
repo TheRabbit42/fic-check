@@ -1,5 +1,6 @@
 export class ICheck {
-    id = ''
+    id = this.constructor.name;
+
     message = '';
     style = '';
     matchCount = 0;

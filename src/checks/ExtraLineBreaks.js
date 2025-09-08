@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class ExtraLineBreaks extends ICheck {
-    id = 'linebreaks';
     message = 'No extra line breaks';
     style = 'error';
 

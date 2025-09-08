@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class SingleCharacterEllipses extends ICheck {
-    id = "ellipses"
     message = 'No single-character ellipses';
     style = 'error';
 

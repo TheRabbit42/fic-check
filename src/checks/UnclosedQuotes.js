@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class UnclosedQuotes extends ICheck {
-    id = 'quote';
     message = 'No unclosed quotes';
     style = 'error';
 

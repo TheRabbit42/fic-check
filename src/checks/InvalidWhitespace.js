@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class InvalidWhitespace extends ICheck {
-    id = "whitespace"
     message = 'Proper whitespace';
     style = 'error';
 

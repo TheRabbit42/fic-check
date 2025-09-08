@@ -1,7 +1,6 @@
 import { ICheck } from "./ICheck.js";
 
 export class QuoteSpacing extends ICheck {
-    id = 'quotespacing';
     message = 'Proper quote spacing';
     style = 'error';
 
