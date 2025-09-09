@@ -1,6 +1,7 @@
 import { ICheck } from "./ICheck.js";
 
 export class OverusedAdverbs extends ICheck {
+    message = 'No overused adverbs';
     style = 'warning';
 
     counts = {}
