@@ -41,7 +41,6 @@
   }
 
   aside {
-    background: white;
     border-radius: 0 0 1rem 1rem;
     margin-top: -4rem;
     padding: 2rem 1rem 1rem 1rem;
@@ -54,10 +53,6 @@
       margin-top: 0.5rem;
       padding: 1rem;
     }
-  }
-
-  header, aside, main, article {
-    box-shadow: 0 0 0.5rem var(--color-shadow);
   }
 
   textarea {

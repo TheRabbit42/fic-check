@@ -89,7 +89,8 @@ function renderParagraph(paragraph) {
         <div class="col-span-8">
           <textarea v-model="input" autofocus placeholder="Insert text"></textarea>
           <nav>
-            <a href="#" @click="clear">Clear</a><span>&nbsp;|&nbsp;</span><a href="#" @click="paste">Paste</a>
+            <a href="#" @click="clear">Clear</a>
+            <a href="#" @click="paste">Paste</a>
           </nav>
         </div>
 

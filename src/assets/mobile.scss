@@ -12,10 +12,23 @@
   }
 
   header {
-    padding: 0.5rem;
+    padding: 1rem;
   }
 
   .placeholder-text {
     display: none;
+  }
+
+  nav a {
+    border-radius: 0.5rem 0.5rem 0 0;
+    margin: 0.1rem 0 0 0.1rem;
+
+    &:hover {
+      box-shadow: inset 0 0 5px rgba(255, 255, 255, 1);
+    }
+
+    &:active {
+      box-shadow: inset 0 0 5px rgba(128, 128, 128, 1);
+    }
   }
 }
