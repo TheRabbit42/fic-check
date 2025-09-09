@@ -14,6 +14,16 @@ describe("OverusedAdverbs", () => {
         expect(check.isInAnyParagraph(paragraphs)).toBe(true);
     });
 
+    it('detects multiple words regardless of casing', () => {
+        const paragraphs = [`It was REALLY really cool!`];
+        expect(check.isInAnyParagraph(paragraphs)).toBe(true);
+    });
+
+    it('detects multiple words regardless of html', () => {
+        const paragraphs = [`It was <em>really</em>, really cool!`];
+        expect(check.isInAnyParagraph(paragraphs)).toBe(true);
+    });
+
     it('detects multiple words regardless of punctuation', () => {
         const paragraphs = [`It was ultra-really and ultra-really superduper!`];
         expect(check.isInAnyParagraph(paragraphs)).toBe(true);

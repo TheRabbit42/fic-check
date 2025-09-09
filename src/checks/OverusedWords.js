@@ -1,6 +1,7 @@
 import { ICheck } from "./ICheck.js";
 import { names } from "../data/names.js";
 import { trivialWords } from "../data/trivialWords.js";
+import { splitWords } from "../helpers/stringHelpers.js";
 
 export class OverusedWords extends ICheck {
     message = 'No overused words';
@@ -16,11 +17,8 @@ export class OverusedWords extends ICheck {
 
     isInAnyParagraph(paragraphs) {
         this.counts = {}
-        for (const paragraph of paragraphs) {
-            let words = paragraph.split(' ')
-
-            for (let word of words) {
-                word = word.toLowerCase().replace(/[.,":;?!]/, '');
+        for (let paragraph of paragraphs) {
+            for (const word of splitWords(paragraph)) {
                 if (word.length < this.minLength) continue;
                 if (names.includes(word)) continue;
                 if (trivialWords.includes(word)) continue;

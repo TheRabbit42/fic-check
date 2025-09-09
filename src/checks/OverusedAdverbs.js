@@ -1,4 +1,5 @@
 import { ICheck } from "./ICheck.js";
+import { splitWords } from "../helpers/stringHelpers.js";
 
 export class OverusedAdverbs extends ICheck {
     message = 'No overused adverbs';
@@ -22,11 +23,8 @@ export class OverusedAdverbs extends ICheck {
 
     isInAnyParagraph(paragraphs) {
         this.counts = {}
-        for (const paragraph of paragraphs) {
-            let words = paragraph.split(' ')
-
-            for (let word of words) {
-                word = word.toLowerCase().replace(/[.,":;?!]/, '');
+        for (let paragraph of paragraphs) {
+            for (let word of splitWords(paragraph)) {
                 if (!(this.wordEndings.some((ending) => word.endsWith(ending)))) continue;
                 if (word.length < this.minLength) continue;
                 if (this.allowList.includes(word)) continue;

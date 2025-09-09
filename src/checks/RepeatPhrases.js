@@ -1,4 +1,5 @@
 import { ICheck } from "./ICheck.js";
+import { splitWords } from "../helpers/stringHelpers.js";
 
 export class RepeatPhrases extends ICheck {
     message = 'No repeat phrases';
@@ -15,8 +16,7 @@ export class RepeatPhrases extends ICheck {
     isInAnyParagraph(paragraphs) {
         this.counts = {}
         for (const paragraph of paragraphs) {
-            let words = paragraph.toLowerCase().replace(/[^A-Za-z0-9 ]/g, '').split(' ')
-
+            let words = splitWords(paragraph);
             for (let i = 0; i <= words.length-this.minPhraseLength; i++) {
                 let phrase = '';
                 for (let j = 0; j < this.minWordLength; j++)

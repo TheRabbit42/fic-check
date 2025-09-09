@@ -1,11 +1,12 @@
 import { ICheck } from "./ICheck.js";
+import { splitWords } from "../helpers/stringHelpers.js";
 
 export class RepeatWords extends ICheck {
     style = 'warning';
 
     isInParagraph(paragraph) {
         let lastWord = null;
-        for (const word of paragraph.replace(/[^a-z ]/i,'').split(' ')) {
+        for (let word of splitWords(paragraph)) {
             if (word === lastWord) {
                 return true;
             }

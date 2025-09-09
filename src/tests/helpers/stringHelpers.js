@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { countWords, stripHtml } from "../../helpers/stringHelpers.js";
+import { countWords, splitWords, stripHtml } from "../../helpers/stringHelpers.js";
 
 describe("countWords", () => {
     it('counts simple sentences', () => {
@@ -43,6 +43,26 @@ describe("countWords", () => {
             'With multiple paragraphs.\n\n' +
             'Okay?';
         expect(countWords(text)).toEqual(8);
+    });
+});
+
+describe("splitWords", () => {
+    it('ignores whitespace', () => {
+        const text = '   Text with     words\n\n in     it.    ';
+        const expectedOutput = ['Text', 'with', 'words', 'in', 'it'];
+        expect(splitWords(text)).toEqual(expectedOutput);
+    });
+
+   it('handles html', () => {
+       const text = 'Text with <em>html</em> in it.';
+       const expectedOutput = ['Text', 'with', 'html', 'in', 'it'];
+       expect(splitWords(text)).toEqual(expectedOutput);
+   });
+
+    it('handles dashes', () => {
+        const text = 'Text—with—dashes.';
+        const expectedOutput = ['Text', 'with', 'dashes'];
+        expect(splitWords(text)).toEqual(expectedOutput);
     });
 });
 
