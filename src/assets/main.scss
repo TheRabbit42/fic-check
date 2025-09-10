@@ -87,7 +87,7 @@ a:hover {
 aside {
   background: white;
 
-  .success, .warning, .error {
+  .success, .warning, .error, .notice {
     &:before {
       display: inline-block;
       padding: 0 8px 0 2px;
@@ -102,8 +102,16 @@ aside {
     }
   }
 
+  .notice {
+    color: darkorange;
+
+    &:before {
+      content: '\25C9';
+    }
+  }
+
   .warning {
-    color: orange;
+    color: darkorange;
 
     &:before {
       content: '\25C9';
@@ -119,12 +127,16 @@ aside {
   }
 }
 
+.highlight-notice {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+
 .highlight-error {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.8);
 }
 
 .highlight-warning {
-  background-color: yellow;
+  background-color: rgba(255, 128, 0, 0.8);
 }
 
 .btn-clear {

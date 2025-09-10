@@ -3,7 +3,7 @@ import { splitWords } from "../helpers/stringHelpers.js";
 
 export class RepeatPhrases extends ICheck {
     message = 'No repeat phrases';
-    style = 'warning';
+    style = 'notice';
 
     counts = {}
     minPhraseLength = 3;

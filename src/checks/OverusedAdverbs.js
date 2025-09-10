@@ -3,7 +3,7 @@ import { splitWords } from "../helpers/stringHelpers.js";
 
 export class OverusedAdverbs extends ICheck {
     message = 'No overused adverbs';
-    style = 'warning';
+    style = 'notice';
 
     counts = {}
     minCount = 2;

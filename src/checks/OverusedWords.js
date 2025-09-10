@@ -5,7 +5,7 @@ import { splitWords } from "../helpers/stringHelpers.js";
 
 export class OverusedWords extends ICheck {
     message = 'No overused words';
-    style = 'warning';
+    style = 'notice';
 
     counts = {}
     minCount = 5;
