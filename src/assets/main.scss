@@ -139,8 +139,15 @@ aside {
   background-color: rgba(255, 128, 0, 0.8);
 }
 
-.btn-clear {
-  float: right;
+hr {
+  padding: 20px;
+  border: none;
+  text-align: center;
+  color: rgb(128, 128, 128);
+
+  &::before {
+    content: "— «·» —";
+  }
 }
 
 textarea {
@@ -149,16 +156,6 @@ textarea {
   height: 8rem;
   resize: none;
   width: 100%;
-}
-
-button {
-  height: 50px;
-  width: 200px;
-}
-
-#debug {
-  height: 800px;
-  width: 200px;
 }
 
 .col-span-1 { grid-column-end: span 1; }
