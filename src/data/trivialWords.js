@@ -4,7 +4,7 @@ export const trivialWords = [
     'did', `didn't`,
     'he', `he'd`, 'her', 'his',
     'I', 'is', 'it',
-    'kwami',
+    'kwami', 'kwamis',
     'miraculous',
     'of', 'on',
     'she', `she'd`, 'said',
