@@ -16,7 +16,6 @@ export class ExtraLineBreaks extends ICheck {
                 id: this.id,
                 text: this.message,
                 style: extraLineBreaks.length > 0 ? this.style : 'success',
-                href: `#${this.id}`
             }
         )
     }

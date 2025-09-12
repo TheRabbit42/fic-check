@@ -15,7 +15,6 @@ export class WordCountMultiple extends ICheck {
                 id: this.id,
                 text: this.message,
                 style: countWords(input.value) % 500 > 0 ? this.style : 'success',
-                href: `#${this.id}`
             }
         )
     }
