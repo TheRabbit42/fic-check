@@ -65,5 +65,11 @@
 
     header { background: linear-gradient(0deg, var(--color-header-start) 0%, var(--color-header-end) 100%); }
     header, aside, textarea { border-color: var(--color-border); }
-    .word-count-display, .chevron { background-color: var(--color-border); }
+    .word-count-display {
+        background-color: var(--color-border);
+
+        & > div > div {
+            background-color: var(--color-border);
+        }
+    }
 }

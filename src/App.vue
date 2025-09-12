@@ -102,7 +102,13 @@ function renderParagraph(paragraph) {
 
         <div class="col-span-4">
           <aside>
-            <div class="word-count-display">{{ wordCountDisplay }}</div>
+            <div class="word-count-display">
+              <div>
+                <div>
+                  {{ wordCountDisplay }}
+                </div>
+              </div>
+            </div>
             <div v-if="renderedInput === ''" >
               <p class="placeholder-text">
                 check for<br/>common<br/>mistakes
