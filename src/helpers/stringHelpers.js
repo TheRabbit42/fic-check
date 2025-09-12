@@ -1,6 +1,11 @@
 export const wordDelimiters = /[/!"#$%&()*+,.:;=?@^{|}–—]/gi
 
+export function wordCountDisplayText(count) {
+    return (count == 1) ? `${count} word` : `${count} words`;
+}
+
 export function countWords(text) {
+    if (text == undefined) { return 0; }
 
     return splitWords(text).length;
 }

@@ -50,8 +50,19 @@
     & > div {
       border: 3px dotted #ddd;
       border-radius: 0.5rem;
-      margin-top: 0.5rem;
-      padding: 1rem;
+      margin-top: -2rem;
+      padding: 3rem 1rem;
+    }
+
+    .word-count-display {
+      border: 0;
+      clip-path: ellipse(85% 100% at 50% 0%);
+      color: white;
+      font-size: 200%;
+      font-weight: bold;
+      margin: 0 -1rem 0 -1rem;
+      padding: 1.3rem 2rem;
+      text-align: center;
     }
   }
 
@@ -117,5 +128,9 @@
     font-weight: bold !important;
     text-align: center;
     padding: 2rem 0 2rem 0;
+  }
+
+  .mobile-only {
+    display: none;
   }
 }

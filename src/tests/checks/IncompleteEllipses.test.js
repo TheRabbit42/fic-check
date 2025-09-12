@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { InvalidPunctuation } from "../../checks/InvalidPunctuation.js";
+import { IncompleteEllipses } from "../../checks/IncompleteEllipses.js";
 
 describe("InvalidPunctuation", () => {
-    const check = new InvalidPunctuation();
+    const check = new IncompleteEllipses();
 
     it(`detects double periods`, () => {
         expect(check.isInParagraph(`Wait.. What?`)).toBe(true);

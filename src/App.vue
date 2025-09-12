@@ -3,6 +3,7 @@ import { reactive, ref, computed, watch } from 'vue'
 import { checklist } from "@/data/checklist.js"
 import { ExtraLineBreaks } from "@/checks/ExtraLineBreaks.js"
 import { themes } from "@/data/themes.js"
+import { countWords, wordCountDisplayText } from "@/helpers/stringHelpers.js";
 
 const input = ref('');
 const randomTheme = themes[Math.floor(Math.random() * themes.length)];
@@ -27,6 +28,11 @@ const renderedInput = computed(() => {
       .filter(Boolean)
       .map((paragraph) => renderParagraph(paragraph))
       .join('');
+});
+
+const wordCountDisplay = computed(() => {
+  const count = countWords(input.value);
+  return wordCountDisplayText(count);
 });
 
 const paragraphs = computed(() => {
@@ -96,6 +102,7 @@ function renderParagraph(paragraph) {
 
         <div class="col-span-4">
           <aside>
+            <div class="word-count-display">{{ wordCountDisplay }}</div>
             <div v-if="renderedInput === ''" >
               <p class="placeholder-text">
                 check for<br/>common<br/>mistakes

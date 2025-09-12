@@ -14,8 +14,7 @@ export class WordCount extends ICheck {
             {
                 id: this.id,
                 text: `${countWords(input.value)} words`,
-                style: '',
-                href: `#${this.id}`
+                style: 'mobile-only',
             }
         )
     }

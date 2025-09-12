@@ -1,7 +1,7 @@
 import { ICheck } from "./ICheck.js";
 
 export class InvalidPunctuation extends ICheck {
-    message = 'Proper punctuation';
+    message = 'No invalid punctuation';
     style = 'error';
 
     regex = /(?<=[^\.]|\w|\b|^)(\.\.)(?=[^\.]|\w|\b|$)/g;
