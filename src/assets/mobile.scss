@@ -3,20 +3,24 @@
     display: none;
   }
 
-  .word-count-display {
-    display: none;
+  header {
+    height: 11.6rem;
+    padding: 1rem;
   }
 
   aside {
-    left: 1rem;
-    padding: 1rem;
-    position: absolute;
-    right: 1rem;
-    top: 11rem;
-  }
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: start;
 
-  header {
+    margin: 0 1rem 0 1rem;
+    height: 100%;
     padding: 1rem;
+
+    & .word-count-display {
+      display: none;
+    }
   }
 
   .placeholder-text {

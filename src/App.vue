@@ -97,31 +97,29 @@ function renderParagraph(paragraph) {
             <a href="#" @click="paste">Paste</a>
           </nav>
         </div>
-
-        <div class="col-span-4">
-          <aside>
-            <div class="word-count-display">
-              <div>
-                <div>
-                  {{ wordCountDisplay }}
-                </div>
-              </div>
-            </div>
-            <div v-if="renderedInput === ''" >
-              <p class="placeholder-text">
-                check for<br/>common<br/>mistakes
-              </p>
-            </div>
-            <div v-if="renderedInput !== ''" >
-              <p v-for="msg in state.messages" :class="msg.style">
-                <a @click="clickedCheck(msg)">{{ msg.text }}</a>
-                <p v-html="msg.renderAdditional"></p>
-              </p>
-            </div>
-          </aside>
-        </div>
       </div>
     </header>
+
+    <aside>
+      <div class="word-count-display">
+        <div>
+          <div>
+            {{ wordCountDisplay }}
+          </div>
+        </div>
+      </div>
+      <div v-if="renderedInput === ''" >
+        <p class="placeholder-text">
+          check for<br/>common<br/>mistakes
+        </p>
+      </div>
+      <div v-if="renderedInput !== ''" >
+        <p v-for="msg in state.messages" :class="msg.style">
+          <a @click="clickedCheck(msg)">{{ msg.text }}</a>
+          <p v-html="msg.renderAdditional"></p>
+        </p>
+      </div>
+    </aside>
 
     <main>
       <div>
