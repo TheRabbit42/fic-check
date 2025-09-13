@@ -6,9 +6,11 @@
 
 :root {
     --brightness-multi-background: 85%;
-    --brightness-multi-page: 50%;
-    --brightness-multi-border: 20%;
-    --brightness-multi-shadow: 25%;
+    --brightness-multi-page: 60%;
+    --brightness-multi-header: 0%;
+    --brightness-multi-count: 25%;
+    --brightness-multi-border: 25%;
+    --brightness-multi-shadow: 30%;
 
     --color-red: Tomato;
     --color-orange: DarkOrange;
@@ -59,17 +61,17 @@
 .themed {
     --color-border: color-mix(in oklab, var(--color-primary), black var(--brightness-multi-border));
     --color-page: color-mix(in oklab, var(--color-primary), white var(--brightness-multi-page));
-    --color-header-start: var(--color-primary);
-    --color-header-end: color-mix(in oklab, var(--color-primary), white 90%);
+    --color-header: color-mix(in oklab, var(--color-primary), white var(--brightness-multi-header));
     --color-shadow: color-mix(in oklab, var(--color-page), black var(--brightness-multi-shadow));
+    --color-count: color-mix(in oklab, var(--color-primary), black var(--brightness-multi-count));
 
-    header { background: linear-gradient(0deg, var(--color-header-start) 0%, var(--color-header-end) 100%); }
+    header { background: var(--color-header); }
     header, aside, textarea { border-color: var(--color-border); }
     .word-count-display {
-        background-color: var(--color-border);
+        background-color: var(--color-count);
 
         & > div > div {
-            background-color: var(--color-border);
+            background-color: var(--color-count);
         }
     }
 }
