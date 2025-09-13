@@ -1,7 +1,7 @@
 import { ICheck } from "./ICheck.js";
 
 export class InvalidCapitalization extends ICheck {
-    message = 'Proper capitalization';
+    message = 'No invalid capitalization';
     style = 'error';
 
     regex = /(^"?[a-z])|(\w[.!?]{1,2}\s[a-z])/g;

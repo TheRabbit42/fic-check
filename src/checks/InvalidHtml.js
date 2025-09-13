@@ -9,7 +9,7 @@ export class InvalidHtml extends ICheck {
         for (let tag of this.tags) {
             let match1 = new RegExp(`<>`, 'gi');
             let match2 = new RegExp(`</>`, 'gi');
-            if ((paragraph.match(match1) || []).length != (paragraph.match(match2) || []).length)
+            if ((paragraph.match(match1) || []).length !== (paragraph.match(match2) || []).length)
             {
                 return true;
             }
@@ -18,7 +18,7 @@ export class InvalidHtml extends ICheck {
         for (let tag of this.tags) {
             let match1 = new RegExp(`<${tag}>`, 'gi');
             let match2 = new RegExp(`<\/${tag}>`, 'gi');
-            if ((paragraph.match(match1) || []).length != (paragraph.match(match2) || []).length)
+            if ((paragraph.match(match1) || []).length !== (paragraph.match(match2) || []).length)
             {
                 return true;
             }

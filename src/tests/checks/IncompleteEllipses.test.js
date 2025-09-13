@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { IncompleteEllipses } from "../../checks/IncompleteEllipses.js";
 
-describe("InvalidPunctuation", () => {
+describe("IncompleteEllipses", () => {
     const check = new IncompleteEllipses();
 
     it(`detects double periods`, () => {

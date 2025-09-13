@@ -1,7 +1,7 @@
 import { ICheck } from "./ICheck.js";
 
 export class InvalidWhitespace extends ICheck {
-    message = 'Proper whitespace';
+    message = 'No extra/missing whitespace';
     style = 'error';
 
     regex = /(\s{2,})|([a-zA-Z]\s[\.,;:?!]\w)|([a-zA-Z][\.,;:?!]\w)|(\w[\.,;:?!][a-zA-Z])/gi;

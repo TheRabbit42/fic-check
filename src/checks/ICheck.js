@@ -13,7 +13,7 @@ export class ICheck {
         return paragraphs.some((paragraph) => this.isInParagraph(paragraph))
     }
 
-    isInParagraph() {
+    isInParagraph(paragraph) {
         return false;
     }
 

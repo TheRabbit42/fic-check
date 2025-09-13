@@ -40,7 +40,7 @@ const paragraphs = computed(() => {
 });
 
 watch(input, async (oldInput, newInput) => {
-  state.messages = checklist.map((check) => check.getMessage(input, paragraphs.value));
+  state.messages = checklist.map((check) => check.getMessages(input, paragraphs.value)).flat();
 })
 
 function clear(event) {
@@ -79,10 +79,8 @@ async function paste(event) {
 }
 
 function renderParagraph(paragraph) {
-  for (let check of checklist) {
-    if (check.isInParagraph(paragraph)) {
-      paragraph = check.renderParagraph(paragraph);
-    }
+  for (let checkSet of checklist) {
+    paragraph = checkSet.renderParagraph(paragraph);
   }
   return `<p>${paragraph}</p>`;
 }

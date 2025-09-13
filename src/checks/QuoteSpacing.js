@@ -1,7 +1,7 @@
 import { ICheck } from "./ICheck.js";
 
 export class QuoteSpacing extends ICheck {
-    message = 'Proper quote spacing';
+    message = 'No invalid quote spacing';
     style = 'error';
 
     regex = /(^"\s)|(\s"\s)|(\s"$)/gim;

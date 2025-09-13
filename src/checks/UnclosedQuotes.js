@@ -7,7 +7,7 @@ export class UnclosedQuotes extends ICheck {
     regex = /"/gi;
 
     isInParagraph(paragraph) {
-        return (paragraph.match(this.regex) || []).length % 2 > 0;
+        return (paragraph.match(this.regex) || []).length % 2 !== 0;
     }
 
     renderParagraph(paragraph) {

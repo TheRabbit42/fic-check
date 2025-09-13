@@ -1,5 +1,5 @@
 import { ICheck } from "./ICheck.js";
-import { countWords } from "@/helpers/stringHelpers.js";
+import { countWords } from "../helpers/stringHelpers.js";
 
 export class WordCount extends ICheck {
     message = 'Word count';
