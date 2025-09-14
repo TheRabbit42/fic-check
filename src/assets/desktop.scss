@@ -44,7 +44,7 @@
     z-index: 10;
 
     & > div {
-      border: 3px dotted #ddd;
+      border: 3px dotted var(--color-dot-border);
       border-radius: 0.5rem;
       margin-top: -2rem;
       padding: 3rem 1rem;
@@ -52,8 +52,8 @@
 
     .word-count-display {
       border: 0;
-      clip-path: ellipse(85% 100% at 50% 0%);
       color: white;
+      clip-path: ellipse(85% 100% at 50% 0%);
       font-size: 200%;
       font-weight: bold;
       margin: 0 -1rem 0 -1rem;
@@ -61,14 +61,13 @@
       text-align: center;
 
       & div {
-        background: white;
+        background: var(--color-checks);
         clip-path: ellipse(82% 100% at 50% 0%);
         padding: 1rem 0 10px 0;
         margin: 0;
         border: 0;
 
         & div {
-          background: purple;
           clip-path: ellipse(75% 100% at 50% 0%);
           padding: 3rem 0 2rem 0;
           margin: 0;
@@ -83,7 +82,6 @@
     border-radius: 1rem 0 0 1rem;
     border-style: solid;
     border-width: 2px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 1rem;
 
     &:active, &:focus {
@@ -103,13 +101,12 @@
   main > div, footer {
     border-width: 0 3px 0 3px;
     border-style: dotted;
-    border-color: rgba(0, 0, 0, 0.1);
+    border-color: var(--color-dot-border);
     margin: 0 1rem 0 1rem;
     padding: 0 2rem 0 2rem;
   }
 
   article {
-    background: rgba(255, 255, 255, 0.8);
     border-radius: 0 0 1rem 1rem;
     padding: 2rem;
 
@@ -119,7 +116,7 @@
   }
 
   .placeholder-text {
-    color: rgba(0.5, 0.5, 0.5, 0.05);
+    color: rgba(128, 128, 128, 0.1);
     font: 300% 'Arial', 'Verdana', 'Helvetica', sans-serif;
     font-weight: bolder;
     margin: 5rem 1rem 5rem 1rem;
@@ -135,7 +132,6 @@
   }
 
   footer {
-    color: rgba(0, 0, 0, 0.25);
     font-size: 95%;
     text-align: center;
     padding: 2rem 0 2rem 0;

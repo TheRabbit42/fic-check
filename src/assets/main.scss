@@ -16,6 +16,10 @@
   justify-content: start;
 }
 
+a {
+  color: var(--color-link);
+}
+
 body {
   font-weight: normal;
   margin: 0 auto;
@@ -55,7 +59,6 @@ main {
 }
 
 article {
-  color: #404040;
   font: 100% 'Lucida Grande','Lucida Sans Unicode',Verdana,Helvetica,sans-serif,'GNU Unifont';
   overflow: auto;
 
@@ -92,8 +95,6 @@ a:hover {
 }
 
 aside {
-  background: white;
-
   .success, .warning, .error, .notice {
     &:before {
       display: inline-block;
@@ -135,22 +136,22 @@ aside {
 }
 
 .highlight-notice {
-  background-color: rgba(255, 255, 0, 0.2);
+  background-color: rgba(255, 255, 0, 0.3);
 }
 
 .highlight-error {
-  background-color: rgba(255, 0, 0, 0.8);
+  background-color: rgba(255, 0, 0, 0.7);
 }
 
 .highlight-warning {
-  background-color: rgba(255, 128, 0, 0.8);
+  background-color: rgba(255, 128, 0, 0.7);
 }
 
 hr {
   padding: 20px;
   border: none;
   text-align: center;
-  color: rgb(128, 128, 128);
+  color: gray;
 
   &::before {
     content: "— «·» —";
@@ -158,7 +159,6 @@ hr {
 }
 
 textarea {
-  color: rgb(42, 42, 42);
   font: 100% 'Lucida Grande','Lucida Sans Unicode',Verdana,Helvetica,sans-serif,'GNU Unifont';
   height: 8rem;
   resize: none;

@@ -1,76 +1,120 @@
-@property  --color-primary {
-    syntax: "<color>";
+@property  --hue {
+    syntax: "<integer>";
     inherits: true;
-    initial-value: grey;
+    initial-value: 128;
+}
+
+@property  --mode-multiplier {
+    syntax: "<integer>";
+    inherits: true;
+    initial-value: 1;
 }
 
 :root {
-    --brightness-multi-background: 85%;
-    --brightness-multi-page: 60%;
-    --brightness-multi-header: 0%;
-    --brightness-multi-count: 25%;
-    --brightness-multi-border: 25%;
-    --brightness-multi-shadow: 30%;
+    --hue-red: 10;
+    --hue-orange: 30;
+    --hue-yellow: 60;
+    --hue-green: 100;
+    --hue-blue: 215;
+    --hue-purple: 285;
 
-    --color-red: Tomato;
-    --color-orange: DarkOrange;
-    --color-yellow: Yellow;
-    --color-green: LimeGreen;
-    --color-blue: DodgerBlue;
-    --color-purple: DarkOrchid;
+    --background-lightness-delta: 43%;
+
+    --color-text-light:         color-mix(in srgb, white, black 20%);
+    --color-text-light-muted:   color-mix(in srgb, white, black 40%);
+    --color-text-dark:          color-mix(in srgb, white, black 80%);
+    --color-text-dark-muted:    color-mix(in srgb, white, black 60%);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --mode-multiplier: 1;
+        --color-text:       var(--color-text-dark);
+        --color-link:       var(--color-text-dark);
+        --color-text-muted: var(--color-text-dark-muted);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --mode-multiplier: -1;
+        --color-text:       var(--color-text-light);
+        --color-link:       var(--color-text-light);
+        --color-text-muted: var(--color-text-light-muted);
+    }
 }
 
 .theme-red {
-    --color-primary: var(--color-red);
+    --hue: var(--hue-red);
 }
 .theme-orange {
-    --color-primary: var(--color-orange);
+    --hue:var(--hue-orange);
 }
 .theme-yellow {
-    --color-primary: var(--color-yellow);
+    --hue:var(--hue-yellow);
 }
 .theme-green {
-    --color-primary: var(--color-green);
+    --hue:var(--hue-green);
 }
 .theme-blue {
-    --color-primary: var(--color-blue);
+    --hue:var(--hue-blue);
 }
 .theme-purple {
-    --color-primary: var(--color-purple);
+    --hue:var(--hue-purple);
 }
 
-    body:has(.theme-red) {
-        background: color-mix(in oklab, var(--color-red), white var(--brightness-multi-background));
-    }
-    body:has(.theme-orange) {
-        background: color-mix(in oklab, var(--color-orange), white var(--brightness-multi-background));
-    }
-    body:has(.theme-yellow) {
-        background: color-mix(in oklab, var(--color-yellow), white var(--brightness-multi-background));
-    }
-    body:has(.theme-green) {
-        background: color-mix(in oklab, var(--color-green), white var(--brightness-multi-background));
-    }
-    body:has(.theme-blue) {
-        background: color-mix(in oklab, var(--color-blue), white var(--brightness-multi-background));
-    }
-    body:has(.theme-purple) {
-        background: color-mix(in oklab, var(--color-purple), white var(--brightness-multi-background));
-    }
+body:has(.theme-red) {
+    background: hsl(var(--hue-orange), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+}
+body:has(.theme-orange) {
+    background: hsl(var(--hue-red), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+}
+body:has(.theme-yellow) {
+    background: hsl(var(--hue-yellow), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+}
+body:has(.theme-green) {
+    background: hsl(var(--hue-green), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+}
+body:has(.theme-blue) {
+    background: hsl(var(--hue-blue), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+}
+body:has(.theme-purple) {
+    background: hsl(var(--hue-purple), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+}
 
 .themed {
-    --color-border: color-mix(in oklab, var(--color-primary), black var(--brightness-multi-border));
-    --color-page: color-mix(in oklab, var(--color-primary), white var(--brightness-multi-page));
-    --color-header: color-mix(in oklab, var(--color-primary), white var(--brightness-multi-header));
-    --color-shadow: color-mix(in oklab, var(--color-page), black var(--brightness-multi-shadow));
-    --color-count: color-mix(in oklab, var(--color-primary), black var(--brightness-multi-count));
+    color: var(--color-text);
+
+    --hs: var(--hue), 80%;
+    --l: 50%;
+
+    // Colors that invert between light/dark mode
+    --color-primary:    hsl(var(--hs), calc(var(--l) + (5% * var(--mode-multiplier))));
+    --color-body:       hsl(var(--hs), calc(var(--l) + (40% * var(--mode-multiplier))));
+    --color-header:     hsl(var(--hs), calc(var(--l) + (12% * var(--mode-multiplier))));
+    --color-count:      hsl(var(--hs), calc(var(--l) - (5%  * var(--mode-multiplier))));
+    --color-page:       hsl(var(--hs), calc(var(--l) + (30% * var(--mode-multiplier))));
+    --color-article:    hsl(var(--hs), calc(var(--l) + (42% * var(--mode-multiplier))));
+    --color-textarea:   hsl(var(--hs), calc(var(--l) + (45% * var(--mode-multiplier))));
+    --color-checks:     hsl(var(--hs), calc(var(--l) + (48% * var(--mode-multiplier))));
+
+    // Colors that don't invert between light/dark mode
+    --color-text-inset: hsl(var(--hs), calc(var(--l) + 45%));
+    --color-border:     color-mix(in srgb, var(--color-header), black 40%);
+    --color-dot-border: rgba(128, 128, 128, 0.4);
+    --color-shadow:     rgba(0, 0, 0, 0.5);
 
     header {
-        background: var(--color-header);
+        background-color: var(--color-header);
     }
 
-    header, aside, textarea {
+    header, aside {
         border-color: var(--color-border);
+    }
+
+    textarea {
+        border-color: black;
+        box-shadow: inset 0 0 10px var(--color-text-inset);
     }
 
     .word-count-display {
@@ -80,4 +124,21 @@
             background-color: var(--color-count);
         }
     }
+
+    article {
+        background: var(--color-article);
+    }
+
+    aside {
+        background-color: var(--color-checks);
+    }
+
+    textarea {
+        background-color: var(--color-textarea);
+    }
+
+    footer {
+        color: var(--color-text-muted);
+    }
 }
+
