@@ -44,7 +44,7 @@
     z-index: 10;
 
     & > div {
-      border: 3px dotted #ddd;
+      border: 3px dotted var(--color-border);
       border-radius: 0.5rem;
       margin-top: -2rem;
       padding: 3rem 1rem;
@@ -103,7 +103,7 @@
   main > div, footer {
     border-width: 0 3px 0 3px;
     border-style: dotted;
-    border-color: rgba(0, 0, 0, 0.1);
+    border-color: var(--color-lighten);
     margin: 0 1rem 0 1rem;
     padding: 0 2rem 0 2rem;
   }

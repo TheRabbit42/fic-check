@@ -4,20 +4,34 @@
     initial-value: grey;
 }
 
-:root {
-    --brightness-multi-background: 85%;
-    --brightness-multi-page: 60%;
-    --brightness-multi-header: 0%;
-    --brightness-multi-count: 25%;
-    --brightness-multi-border: 25%;
-    --brightness-multi-shadow: 30%;
+@media (prefers-color-scheme: dark) {
+    :root {
+        --darken-color: white;
+        --lighten-color: black;
+    }
+}
 
+@media (prefers-color-scheme: light) {
+    :root {
+        --darken-color: dark;
+        --lighten-color: white;
+    }
+}
+
+:root {
     --color-red: Tomato;
     --color-orange: DarkOrange;
     --color-yellow: Yellow;
     --color-green: LimeGreen;
     --color-blue: DodgerBlue;
     --color-purple: DarkOrchid;
+
+    --color-multiplier-background: 85%;
+    --color-multiplier-page: 60%;
+    --color-multiplier-header: 0%;
+    --color-multiplier-count: 25%;
+    --color-multiplier-border: 30%;
+    --color-multiplier-shadow: 30%;
 }
 
 .theme-red {
@@ -39,31 +53,31 @@
     --color-primary: var(--color-purple);
 }
 
-    body:has(.theme-red) {
-        background: color-mix(in oklab, var(--color-red), white var(--brightness-multi-background));
-    }
-    body:has(.theme-orange) {
-        background: color-mix(in oklab, var(--color-orange), white var(--brightness-multi-background));
-    }
-    body:has(.theme-yellow) {
-        background: color-mix(in oklab, var(--color-yellow), white var(--brightness-multi-background));
-    }
-    body:has(.theme-green) {
-        background: color-mix(in oklab, var(--color-green), white var(--brightness-multi-background));
-    }
-    body:has(.theme-blue) {
-        background: color-mix(in oklab, var(--color-blue), white var(--brightness-multi-background));
-    }
-    body:has(.theme-purple) {
-        background: color-mix(in oklab, var(--color-purple), white var(--brightness-multi-background));
-    }
+body:has(.theme-red) {
+    background: color-mix(in srgb, var(--color-red), white var(--color-multiplier-background));
+}
+body:has(.theme-orange) {
+    background: color-mix(in srgb, var(--color-orange), var(--lighten-color) var(--color-multiplier-background));
+}
+body:has(.theme-yellow) {
+    background: color-mix(in srgb, var(--color-yellow), var(--lighten-color) var(--color-multiplier-background));
+}
+body:has(.theme-green) {
+    background: color-mix(in srgb, var(--color-green), var(--lighten-color) var(--color-multiplier-background));
+}
+body:has(.theme-blue) {
+    background: color-mix(in srgb, var(--color-blue), var(--lighten-color) var(--color-multiplier-background));
+}
+body:has(.theme-purple) {
+    background: color-mix(in srgb, var(--color-purple), var(--lighten-color) var(--color-multiplier-background));
+}
 
 .themed {
-    --color-border: color-mix(in oklab, var(--color-primary), black var(--brightness-multi-border));
-    --color-page: color-mix(in oklab, var(--color-primary), white var(--brightness-multi-page));
-    --color-header: color-mix(in oklab, var(--color-primary), white var(--brightness-multi-header));
-    --color-shadow: color-mix(in oklab, var(--color-page), black var(--brightness-multi-shadow));
-    --color-count: color-mix(in oklab, var(--color-primary), black var(--brightness-multi-count));
+    --color-border: color-mix(in srgb, var(--color-primary), var(--darken-color) var(--color-multiplier-border));
+    --color-page:   color-mix(in srgb, var(--color-primary), var(--lighten-color) var(--color-multiplier-page));
+    --color-header: color-mix(in srgb, var(--color-primary), var(--lighten-color) var(--color-multiplier-header));
+    --color-shadow: color-mix(in srgb, var(--color-page), var(--darken-color) var(--color-multiplier-shadow));
+    --color-count:  color-mix(in srgb, var(--color-primary), var(--darken-color) var(--color-multiplier-count));
 
     header {
         background: var(--color-header);
