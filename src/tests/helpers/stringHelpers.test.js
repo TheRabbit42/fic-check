@@ -49,19 +49,37 @@ describe("countWords", () => {
 describe("splitWords", () => {
     it('ignores whitespace', () => {
         const text = '   Text with     words\n\n in     it.    ';
-        const expectedOutput = ['Text', 'with', 'words', 'in', 'it'];
+        const expectedOutput = ['text', 'with', 'words', 'in', 'it'];
         expect(splitWords(text)).toEqual(expectedOutput);
     });
 
    it('handles html', () => {
        const text = 'Text with <em>html</em> in it.';
-       const expectedOutput = ['Text', 'with', 'html', 'in', 'it'];
+       const expectedOutput = ['text', 'with', 'html', 'in', 'it'];
        expect(splitWords(text)).toEqual(expectedOutput);
    });
 
     it('handles dashes', () => {
         const text = 'Text—with—dashes.';
-        const expectedOutput = ['Text', 'with', 'dashes'];
+        const expectedOutput = ['text', 'with', 'dashes'];
+        expect(splitWords(text)).toEqual(expectedOutput);
+    });
+
+    it('hands single-quoted phrases 1', () => {
+        const text = `"It's these 'wrapped phrases' that suck."`;
+        const expectedOutput = [`it's`, 'these', 'wrapped', 'phrases', 'that', 'suck'];
+        expect(splitWords(text)).toEqual(expectedOutput);
+    });
+
+    it('hands single-quoted phrases 2', () => {
+        const text = `"It's these 'wrapped phrases.' They suck."`;
+        const expectedOutput = [`it's`, 'these', 'wrapped', 'phrases', 'they', 'suck'];
+        expect(splitWords(text)).toEqual(expectedOutput);
+    });
+
+    it('hands single-quoted phrases 3', () => {
+        const text = 'The same C pattern.';
+        const expectedOutput = ['the', 'same', 'c', 'pattern'];
         expect(splitWords(text)).toEqual(expectedOutput);
     });
 });
