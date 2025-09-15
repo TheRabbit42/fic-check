@@ -20,7 +20,13 @@ export function splitWords(text) {
     text = text.replace(/\n/gi, ' '); // split on new lines
     text = text.replace(wordDelimiters, ' ');
     text = text.replace(/[ ]{2,}/gi, ' '); // 2 or more space to 1
-    return text.split(' ').filter(function(str){ return str !== ''; })
+
+    let split = text.split(' ');
+    split = split.map((word) => word.replace(/^[[:punct:]]$/, ''));
+    split = split.map((word) => word.replace(/^'|'$/, ''));
+    split = split.filter((word) => word !== '');
+
+    return split
 }
 
 export function stripHtml(text) {
