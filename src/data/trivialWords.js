@@ -11,4 +11,7 @@ export const trivialWords = [
     'the', 'then', 'they', `they'd`, 'their',
     'was', 'were', 'would', `wouldn't`,
     'you', `you're`, `you'd`,
+
+    // to prevent errors with html highlight injection
+    'class', 'highlight',
 ];
