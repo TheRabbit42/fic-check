@@ -50,7 +50,7 @@ export class OverusedAdverbs extends ICheck {
 
     renderAdditional() {
         const filtered = Object.entries(this.counts).filter(([word, count]) => count >= this.minCount)
-        const output = filtered.map(([word, count]) => `<li>${word}: ${count}</li>`);
+        const output = filtered.sort().map(([word, count]) => `<li>${word}: ${count}</li>`);
         return `<ul>${output.join('')}</ul>`;
     }
 }
