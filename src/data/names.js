@@ -15,7 +15,7 @@ export const names = [
     'ladybug',
     'marc',
     'marinette',
-    'master',
+    'master fu',
     'max',
     'mylène',
     'nathalie',
