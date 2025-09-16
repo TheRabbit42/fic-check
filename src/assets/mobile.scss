@@ -8,6 +8,15 @@
     padding: 1rem;
   }
 
+  .container {
+    display: grid;
+    height: 100%;
+  }
+
+  div:has(> article) {
+    display: none;
+  }
+
   aside {
     display: flex;
     flex: 1;
