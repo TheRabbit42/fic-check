@@ -3,10 +3,6 @@
     background: #ddd;
   }
 
-  main {
-    width: 1000px;
-  }
-
   .container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -27,6 +23,27 @@
   header > div, main {
     margin: 0 auto;
     max-width: 1000px;
+  }
+
+  main {
+    width: 1000px;
+  }
+
+  main > div, footer {
+    border-width: 0 3px 0 3px;
+    border-style: dotted;
+    border-color: var(--color-dot-border);
+    margin: 0 1rem 0 1rem;
+    padding: 0 1rem 0 1rem;
+  }
+
+  article {
+    border-radius: 0 0 1rem 1rem;
+    padding: 2rem;
+
+    blockquote {
+      margin: 0 2rem 0 2rem;
+    }
   }
 
   aside {
@@ -88,23 +105,6 @@
 
     &:hover, &:active, :focus {
       border-color: gold;
-    }
-  }
-
-  main > div, footer {
-    border-width: 0 3px 0 3px;
-    border-style: dotted;
-    border-color: var(--color-dot-border);
-    margin: 0 1rem 0 1rem;
-    padding: 0 1rem 0 1rem;
-  }
-
-  article {
-    border-radius: 0 0 1rem 1rem;
-    padding: 2rem;
-
-    blockquote {
-      margin: 0 2rem 0 2rem;
     }
   }
 

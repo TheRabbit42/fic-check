@@ -18,7 +18,6 @@ const breakChecker = new ExtraLineBreaks();
 const renderedInput = computed(() => {
   const extraBreakRegex = /\n{3,}/gim;
 
-  let breakCounter = 0;
   checklist.forEach((check) => check.reset());
   breakChecker.reset();
 
@@ -128,10 +127,10 @@ function renderParagraph(paragraph) {
                 </p>
               </div>
               <div v-if="renderedInput !== ''" >
-                <p v-for="msg in state.messages" :class="msg.style">
+                <div v-for="msg in state.messages" :class="msg.style">
                   <a @click="clickedCheck(msg)">{{ msg.text }}</a>
                   <p v-html="msg.renderAdditional"></p>
-                </p>
+                </div>
               </div>
             </aside>
           </div>
