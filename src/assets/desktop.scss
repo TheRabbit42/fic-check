@@ -7,8 +7,8 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 2rem;
-    padding: 0 1rem 0 1rem;
     height: 100%;
+    padding: 0 1rem 0 1rem;
   }
 
   header {
@@ -39,6 +39,7 @@
 
   article {
     border-radius: 0 0 1rem 1rem;
+    height: 100%;
     padding: 2rem;
 
     blockquote {
@@ -113,8 +114,8 @@
     font: 300% 'Arial', 'Verdana', 'Helvetica', sans-serif;
     font-weight: bolder;
     margin: 5rem 1rem 5rem 1rem;
-    text-align: center;
     pointer-events: none;
+    text-align: center;
 
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -126,8 +127,8 @@
 
   footer {
     font-size: 95%;
-    text-align: center;
     padding: 2rem 0 2rem 0;
+    text-align: center;
 
     & a {
       font-weight: bold;
