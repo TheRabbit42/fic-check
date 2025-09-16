@@ -8,15 +8,15 @@
     flex: 1;
     flex-direction: column;
     justify-content: start;
-    width: 1100px;
+    width: 1000px;
   }
 
   .container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-gap: 1rem;
-    height: 100%;
+    grid-gap: 2rem;
     padding: 0 1rem 0 1rem;
+    height: 100%;
   }
 
   header {
@@ -34,14 +34,15 @@
   }
 
   aside {
+    --col-width: calc(1000px * 3 / 12);
+    width: calc(var(--col-width) + 3.95rem);
+
     border-radius: 0 0 1rem 1rem;
-    left: calc(50% + 10.8rem);
     margin-top: -4rem;
     padding: 1rem;
     position: fixed;
     top: 0;
-    width: 19.45rem;
-    z-index: 10;
+    z-index: 20;
 
     & > div {
       border: 3px dotted var(--color-dot-border);
@@ -81,7 +82,7 @@
     background: white;
     border-radius: 1rem 0 0 1rem;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     padding: 1rem;
 
     &:active, &:focus {
@@ -103,7 +104,7 @@
     border-style: dotted;
     border-color: var(--color-dot-border);
     margin: 0 1rem 0 1rem;
-    padding: 0 2rem 0 2rem;
+    padding: 0 1rem 0 1rem;
   }
 
   article {
@@ -116,7 +117,7 @@
   }
 
   .placeholder-text {
-    color: rgba(128, 128, 128, 0.1);
+    color: rgba(0, 0, 0, 0.1);
     font: 300% 'Arial', 'Verdana', 'Helvetica', sans-serif;
     font-weight: bolder;
     margin: 5rem 1rem 5rem 1rem;

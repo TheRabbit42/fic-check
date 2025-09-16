@@ -4,12 +4,6 @@
     initial-value: 128;
 }
 
-@property  --mode-multiplier {
-    syntax: "<integer>";
-    inherits: true;
-    initial-value: 1;
-}
-
 :root {
     --hue-red: 10;
     --hue-orange: 30;
@@ -18,29 +12,36 @@
     --hue-blue: 215;
     --hue-purple: 285;
 
-    --background-lightness-delta: 43%;
-
     --color-text-light:         color-mix(in srgb, white, black 20%);
-    --color-text-light-muted:   color-mix(in srgb, white, black 40%);
     --color-text-dark:          color-mix(in srgb, white, black 80%);
+    --color-text-light-muted:   color-mix(in srgb, white, black 40%);
     --color-text-dark-muted:    color-mix(in srgb, white, black 60%);
 }
 
 @media (prefers-color-scheme: light) {
     :root {
-        --mode-multiplier: 1;
         --color-text:       var(--color-text-dark);
         --color-link:       var(--color-text-dark);
         --color-text-muted: var(--color-text-dark-muted);
+        --color-page-sm:    rgba(255, 255, 255, 0.5);
+        --mode-multiplier: 1;
+        --list-multiplier: 1;
+        --bg-lum-delta: 40%;
+        --s: 60%;
+        --l: 50%;
     }
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --mode-multiplier: -1;
         --color-text:       var(--color-text-light);
         --color-link:       var(--color-text-light);
         --color-text-muted: var(--color-text-light-muted);
+        --color-page-sm:    rgba(255, 255, 255, 0.5);
+        --mode-multiplier: 0.25;
+        --bg-lum-delta: 0%;
+        --s: 50%;
+        --l: 10%;
     }
 }
 
@@ -64,57 +65,56 @@
 }
 
 body:has(.theme-red) {
-    background: hsl(var(--hue-orange), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+    background: hsl(var(--hue-orange), var(--s), calc(var(--l) + var(--bg-lum-delta) * var(--mode-multiplier)));
 }
 body:has(.theme-orange) {
-    background: hsl(var(--hue-red), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+    background: hsl(var(--hue-red),    var(--s), calc(var(--l) + var(--bg-lum-delta) * var(--mode-multiplier)));
 }
 body:has(.theme-yellow) {
-    background: hsl(var(--hue-yellow), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+    background: hsl(var(--hue-yellow), var(--s), calc(var(--l) + var(--bg-lum-delta) * var(--mode-multiplier)));
 }
 body:has(.theme-green) {
-    background: hsl(var(--hue-green), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+    background: hsl(var(--hue-green),  var(--s), calc(var(--l) + var(--bg-lum-delta) * var(--mode-multiplier)));
 }
 body:has(.theme-blue) {
-    background: hsl(var(--hue-blue), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+    background: hsl(var(--hue-blue),   var(--s), calc(var(--l) + var(--bg-lum-delta) * var(--mode-multiplier)));
 }
 body:has(.theme-purple) {
-    background: hsl(var(--hue-purple), 80%, calc(50% + (var(--background-lightness-delta) * var(--mode-multiplier))));
+    background: hsl(var(--hue-purple), var(--s), calc(var(--l) + var(--bg-lum-delta) * var(--mode-multiplier)));
 }
 
 .themed {
     color: var(--color-text);
 
-    --hs: var(--hue), 80%;
-    --l: 50%;
+    --hs: var(--hue), var(--s);
 
     // Colors that invert between light/dark mode
-    --color-primary:    hsl(var(--hs), calc(var(--l) + (5% * var(--mode-multiplier))));
-    --color-body:       hsl(var(--hs), calc(var(--l) + (40% * var(--mode-multiplier))));
-    --color-header:     hsl(var(--hs), calc(var(--l) + (12% * var(--mode-multiplier))));
-    --color-count:      hsl(var(--hs), calc(var(--l) - (5%  * var(--mode-multiplier))));
-    --color-page:       hsl(var(--hs), calc(var(--l) + (30% * var(--mode-multiplier))));
-    --color-article:    hsl(var(--hs), calc(var(--l) + (42% * var(--mode-multiplier))));
-    --color-textarea:   hsl(var(--hs), calc(var(--l) + (45% * var(--mode-multiplier))));
-    --color-checks:     hsl(var(--hs), calc(var(--l) + (48% * var(--mode-multiplier))));
+
+    --color-count:      hsl(var(--hs), calc(var(--l) + 00% * var(--mode-multiplier)));
+    --color-header:     hsl(var(--hs), calc(var(--l) + 10% * var(--mode-multiplier)));
+    --color-page:       hsl(var(--hs), calc(var(--l) + 30% * var(--mode-multiplier)));
+    --color-article:    hsl(var(--hs), calc(var(--l) + 40% * var(--mode-multiplier)));
+    --color-text-inset: hsl(var(--hs), calc(var(--l) + 40% * var(--mode-multiplier)));
+    --color-textarea:   hsl(var(--hs), calc(var(--l) + 40% * var(--mode-multiplier)));
+    --color-textarea2:  hsl(var(--hs), calc(var(--l) + 80% * var(--mode-multiplier)));
+    --color-checks:     hsl(var(--hs), calc(var(--l) + 50% * var(--mode-multiplier)));
+    --color-border:     hsl(var(--hs), calc(var(--l) - 10% * var(--mode-multiplier)));
+    --color-hover:      hsl(var(--hs), calc(var(--l) + 30% * var(--mode-multiplier)));
 
     // Colors that don't invert between light/dark mode
-    --color-text-inset: hsl(var(--hs), calc(var(--l) + 45%));
-    --color-border:     color-mix(in srgb, var(--color-header), black 40%);
-    --color-dot-border: rgba(128, 128, 128, 0.4);
+    --color-dot-border: rgba(0, 0, 0, 0.25);
     --color-shadow:     rgba(0, 0, 0, 0.5);
 
     header {
         background-color: var(--color-header);
     }
 
-    header, aside {
-        border-color: var(--color-border);
+    main {
+        background-color: var(--color-page);
     }
 
-    textarea {
-        border-color: black;
-        box-shadow: inset 0 0 10px var(--color-text-inset);
+    header, aside {
+        border-color: var(--color-border);
     }
 
     .word-count-display {
@@ -126,7 +126,7 @@ body:has(.theme-purple) {
     }
 
     article {
-        background: var(--color-article);
+        background-color: var(--color-article);
     }
 
     aside {
@@ -134,7 +134,14 @@ body:has(.theme-purple) {
     }
 
     textarea {
+        color: var(--color-text);
         background-color: var(--color-textarea);
+        border-color: var(--color-border);
+        box-shadow: inset 0 0 10px var(--color-text-inset);
+
+        &:focus {
+            background-color: var(--color-textarea2);
+        }
     }
 
     footer {
