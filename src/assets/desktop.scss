@@ -54,9 +54,9 @@
     width: calc(var(--col-width) + 3.95rem);
 
     border-radius: 0 0 1rem 1rem;
-    margin-top: -4rem;
-    padding: 1rem;
-    position: fixed;
+    margin-top: -100rem;
+    padding: 0 1rem 1rem 1rem;
+    position: sticky;
     top: 0;
     z-index: 20;
 
@@ -80,13 +80,13 @@
       & div {
         background: var(--color-checks);
         clip-path: ellipse(82% 100% at 50% 0%);
-        padding: 1rem 0 10px 0;
+        padding: 0 0 1rem 0;
         margin: 0;
         border: 0;
 
         & div {
           clip-path: ellipse(75% 100% at 50% 0%);
-          padding: 3rem 0 2rem 0;
+          padding: 1rem 0 2rem 0;
           margin: 0;
           border: 0;
         }

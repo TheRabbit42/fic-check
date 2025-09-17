@@ -103,8 +103,8 @@ body:has(.theme-purple) {
     --color-hover:      hsl(var(--hs), calc(var(--l) + 30% * var(--mode-multiplier)));
 
     // Colors that don't invert between light/dark mode
-    --color-dot-border: rgba(0, 0, 0, 0.25);
-    --color-shadow:     rgba(0, 0, 0, 0.25);
+    --color-dot-border: rgba(0, 0, 0, 0.2);
+    --color-shadow:     rgba(0, 0, 0, 0.5);
 
     header {
         background-color: var(--color-header);
