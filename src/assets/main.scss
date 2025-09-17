@@ -26,8 +26,8 @@ body {
   display: flex;
 }
 
-header, aside, main, article {
-  box-shadow: 0 0 0.5rem var(--color-shadow);
+header, aside, main, article, footer {
+  box-shadow: 0 0.5rem 0.5rem var(--color-shadow);
 }
 
 header {

@@ -91,6 +91,7 @@ body:has(.theme-purple) {
     // Colors that invert between light/dark mode
 
     --color-count:      hsl(var(--hs), calc(var(--l) + 00% * var(--mode-multiplier)));
+    --color-footer:     hsl(var(--hs), calc(var(--l) + 20% * var(--mode-multiplier)));
     --color-header:     hsl(var(--hs), calc(var(--l) + 10% * var(--mode-multiplier)));
     --color-page:       hsl(var(--hs), calc(var(--l) + 30% * var(--mode-multiplier)));
     --color-article:    hsl(var(--hs), calc(var(--l) + 40% * var(--mode-multiplier)));
@@ -103,7 +104,7 @@ body:has(.theme-purple) {
 
     // Colors that don't invert between light/dark mode
     --color-dot-border: rgba(0, 0, 0, 0.25);
-    --color-shadow:     rgba(0, 0, 0, 0.5);
+    --color-shadow:     rgba(0, 0, 0, 0.25);
 
     header {
         background-color: var(--color-header);
@@ -111,6 +112,10 @@ body:has(.theme-purple) {
 
     main {
         background-color: var(--color-page);
+    }
+
+    footer {
+        background-color: var(--color-footer);
     }
 
     header, aside {
