@@ -4,7 +4,7 @@ export class FinalPunctuation extends ICheck {
     message = 'No missing final punctuation';
     style = 'error';
 
-    regex = /([^\n\r!?:—.")>]"?$)|([^\n\r!?:—.")>]"?(?:<\/?\w*\/?>"?)$)/gi;
+    regex = /([^\n\r!?:—.")>\s]"?$)|([^\n\r!?:—.")>\s]"?(?:<\/?\w*\/?>"?)$)/gi;
 
     isInParagraph(paragraph) {
         return (paragraph.match(this.regex) || []).length > 0;

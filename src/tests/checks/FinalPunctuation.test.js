@@ -11,6 +11,8 @@ describe("FinalPunctuation", () => {
     });
 
     it(`ignores valid paragraphs`, () => {
+        expect(check.isInParagraph(`A valid paragraph. `)).toBe(false)
+        expect(check.isInParagraph(`A valid paragraph.  `)).toBe(false)
         expect(check.isInParagraph(`A valid paragraph.`)).toBe(false)
         expect(check.isInParagraph(`A valid paragraph?`)).toBe(false)
         expect(check.isInParagraph(`A valid paragraph!`)).toBe(false)
@@ -21,12 +23,15 @@ describe("FinalPunctuation", () => {
 
         expect(check.isInParagraph(`"A valid quote."`)).toBe(false)
         expect(check.isInParagraph(`"A valid quote?"`)).toBe(false)
+        expect(check.isInParagraph(`"A valid quote?" `)).toBe(false)
         expect(check.isInParagraph(`"A valid quote!"`)).toBe(false)
         expect(check.isInParagraph(`"A valid quote..."`)).toBe(false)
         expect(check.isInParagraph(`"A valid quote—"`)).toBe(false)
         expect(check.isInParagraph(`"A valid quote:"`)).toBe(false)
 
+        expect(check.isInParagraph(`<em>Emphasis!</em>  `)).toBe(false)
         expect(check.isInParagraph(`<em>Emphasis!</em>`)).toBe(false)
+        expect(check.isInParagraph(`<hr/>  `)).toBe(false)
         expect(check.isInParagraph(`<hr/>`)).toBe(false)
     });
 });
