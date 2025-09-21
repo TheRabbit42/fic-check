@@ -1,5 +1,6 @@
 import { ICheck } from "./ICheck.js";
 import { splitWords } from "../helpers/stringHelpers.js";
+import { adverbs } from "../data/adverbs.js"
 
 export class OverusedAdverbs extends ICheck {
     message = 'No overused adverbs';
@@ -7,15 +8,6 @@ export class OverusedAdverbs extends ICheck {
 
     counts = {}
     minCount = 2;
-    minLength = 4;
-    allowList = [
-        'away',
-        'lady',
-        'only',
-        'play',
-        'they', 'today',
-    ];
-    wordEndings = ['ly', 'ic', 'y'];
 
     isInParagraph(paragraph) {
         return true;
@@ -24,13 +16,11 @@ export class OverusedAdverbs extends ICheck {
     isInAnyParagraph(paragraphs) {
         this.counts = {}
         for (let paragraph of paragraphs) {
-            for (let word of splitWords(paragraph)) {
-                if (!(this.wordEndings.some((ending) => word.endsWith(ending)))) continue;
-                if (word.length < this.minLength) continue;
-                if (this.allowList.includes(word)) continue;
-
-                this.counts[word] = this.counts[word] || 0;
-                this.counts[word] += 1;
+            for (const adverb of adverbs) {
+                const regex = new RegExp(adverb, 'gi');
+                let matchCount = (paragraph.match(regex) || []).length;
+                this.counts[adverb] = this.counts[adverb] || 0;
+                this.counts[adverb] += matchCount;
             }
         }
         const filtered = Object.entries(this.counts).filter(([word, count]) => count >= this.minCount)

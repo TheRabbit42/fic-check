@@ -1,6 +1,7 @@
 import { ICheck } from "./ICheck.js";
 import { names } from "../data/names.js";
 import { trivialWords } from "../data/trivialWords.js";
+import { adverbs } from "../data/adverbs.js";
 import { splitWords } from "../helpers/stringHelpers.js";
 
 export class OverusedWords extends ICheck {
@@ -21,6 +22,7 @@ export class OverusedWords extends ICheck {
             for (const word of splitWords(paragraph)) {
                 if (word.length < this.minLength) continue;
                 if (names.includes(word)) continue;
+                if (adverbs.includes(word)) continue;
                 if (trivialWords.includes(word)) continue;
 
                 this.counts[word] = this.counts[word] || 0;
