@@ -89,18 +89,18 @@ body:has(.theme-purple) {
     --hs: var(--hue), var(--s);
 
     // Colors that invert between light/dark mode
-
     --color-count:      hsl(var(--hs), calc(var(--l) + 00% * var(--mode-multiplier)));
     --color-footer:     hsl(var(--hs), calc(var(--l) + 20% * var(--mode-multiplier)));
     --color-header:     hsl(var(--hs), calc(var(--l) + 10% * var(--mode-multiplier)));
     --color-page:       hsl(var(--hs), calc(var(--l) + 30% * var(--mode-multiplier)));
     --color-article:    hsl(var(--hs), calc(var(--l) + 40% * var(--mode-multiplier)));
-    --color-text-inset: hsl(var(--hs), calc(var(--l) + 40% * var(--mode-multiplier)));
     --color-textarea:   hsl(var(--hs), calc(var(--l) + 40% * var(--mode-multiplier)));
-    --color-textarea2:  hsl(var(--hs), calc(var(--l) + 80% * var(--mode-multiplier)));
+    --color-textarea2:  hsl(var(--hs), calc(var(--l) + 40% * var(--mode-multiplier)));
     --color-checks:     hsl(var(--hs), calc(var(--l) + 50% * var(--mode-multiplier)));
     --color-border:     hsl(var(--hs), calc(var(--l) - 10% * var(--mode-multiplier)));
     --color-hover:      hsl(var(--hs), calc(var(--l) + 30% * var(--mode-multiplier)));
+    --color-textarea-glow-normal: rgba(128, 128, 128, 1);
+    --color-textarea-glow-hover:  hsl(calc(var(--hue) + 100), 100%, 40%);
 
     // Colors that don't invert between light/dark mode
     --color-dot-border: rgba(0, 0, 0, 0.2);
@@ -142,10 +142,11 @@ body:has(.theme-purple) {
         color: var(--color-text);
         background-color: var(--color-textarea);
         border-color: var(--color-border);
-        box-shadow: inset 0 0 10px var(--color-text-inset);
+        box-shadow: inset 0 0 10px var(--color-textarea-glow-normal);
 
         &:focus {
             background-color: var(--color-textarea2);
+            box-shadow: inset 0 0 10px var(--color-textarea-glow-hover);
         }
     }
 
