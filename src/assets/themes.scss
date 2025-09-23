@@ -100,7 +100,7 @@ body:has(.theme-purple) {
     --color-border:     hsl(var(--hs), calc(var(--l) - 10% * var(--mode-multiplier)));
     --color-hover:      hsl(var(--hs), calc(var(--l) + 30% * var(--mode-multiplier)));
     --color-textarea-glow-normal: rgba(128, 128, 128, 1);
-    --color-textarea-glow-hover:  hsl(calc(var(--hue) + 100), 100%, 40%);
+    --color-textarea-glow-hover:  hsl(calc(var(--hue) + 180), 100%, 40%);
 
     // Colors that don't invert between light/dark mode
     --color-dot-border: rgba(0, 0, 0, 0.2);
