@@ -21,6 +21,6 @@ export class ExtraLineBreaks extends ICheck {
     }
 
     genericHighlight(wrappedContent) {
-        return `<p><a href="#" id="${this.id}-${this.matchCount++}" class="highlight highlight-${this.style}">BREAK</a></p>${wrappedContent}`;
+        return `\n\n<a href="#" id="${this.id}-${this.matchCount++}" class="highlight highlight-${this.style}">BREAK.</a>\n\n`;
     }
 }
