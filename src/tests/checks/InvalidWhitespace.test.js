@@ -41,4 +41,14 @@ describe("InvalidWhitespace", () => {
         const text = `"Sentence with 0.1%."`;
         expect(check.isInParagraph(text)).toBe(false);
     });
+
+    it('detects this1', () => {
+        const text = `She smiled ."Thanks."`;
+        expect(check.isInParagraph(text)).toBe(true);
+    });
+
+    it('detects this1', () => {
+        const text = `She laughed .'Weird' didn't begin to describe it.`;
+        expect(check.isInParagraph(text)).toBe(true);
+    });
 });
