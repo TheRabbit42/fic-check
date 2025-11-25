@@ -56,4 +56,9 @@ describe("InvalidWhitespace", () => {
         const text = `She smiled ,then waved.`;
         expect(check.isInParagraph(text)).toBe(true);
     });
+
+    it('detects no space before html', () => {
+        const text = `She smiled .<em>Wait</em>.`;
+        expect(check.isInParagraph(text)).toBe(true);
+    });
 });
