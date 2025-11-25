@@ -42,13 +42,18 @@ describe("InvalidWhitespace", () => {
         expect(check.isInParagraph(text)).toBe(false);
     });
 
-    it('detects this1', () => {
+    it('detects spaces before periods', () => {
         const text = `She smiled ."Thanks."`;
         expect(check.isInParagraph(text)).toBe(true);
     });
 
-    it('detects this1', () => {
+    it('detects this', () => {
         const text = `She laughed .'Weird' didn't begin to describe it.`;
+        expect(check.isInParagraph(text)).toBe(true);
+    });
+
+    it('detects space before comma', () => {
+        const text = `She smiled ,then waved.`;
         expect(check.isInParagraph(text)).toBe(true);
     });
 });
