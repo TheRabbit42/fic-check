@@ -1,4 +1,5 @@
 import { InvalidWhitespace } from "@/checks/InvalidWhitespace.js";
+import { MissingSpaceAroundQuote } from "@/checks/MissingSpaceAroundQuote.js";
 import { QuoteSpacing } from "@/checks/QuoteSpacing.js";
 import { ExtraLineBreaks } from "@/checks/ExtraLineBreaks.js";
 import { ICheckSet } from "./ICheckSet.js";
@@ -8,6 +9,7 @@ export class CheckWhitespace extends ICheckSet {
     message = 'Proper whitespace';
     checks = [
         new InvalidWhitespace(),
+        new MissingSpaceAroundQuote,
         new QuoteSpacing,
         new ExtraLineBreaks(),
     ];
