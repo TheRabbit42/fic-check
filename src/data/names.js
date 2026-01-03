@@ -2,6 +2,7 @@ export const names = [
     'adrien',
     'alix',
     'alya',
+    'bustier',
     'chat noir',
     'chloé',
     'felix',
