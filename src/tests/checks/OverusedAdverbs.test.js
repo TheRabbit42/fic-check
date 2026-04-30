@@ -29,6 +29,20 @@ describe("OverusedAdverbs", () => {
         expect(check.isInAnyParagraph(paragraphs)).toBe(true);
     });
 
+    it('ignores words inside other words', () => {
+        const para1 = [`words both before likely unlikely and after`];
+        expect(check.isInAnyParagraph(para1)).toBe(false)
+
+        const para2 = [`words before likely unlikely`];
+        expect(check.isInAnyParagraph(para2)).toBe(false);
+
+        const para3 = [`likely unlikely with words after`];
+        expect(check.isInAnyParagraph(para3)).toBe(false);
+
+        const para4 = [`likely unlikely`];
+        expect(check.isInAnyParagraph(para4)).toBe(false);
+    });
+
     it('ignores allowed words', () => {
         const paragraphs = [`They did and they were cool!`];
         expect(check.isInAnyParagraph(paragraphs)).toBe(false);

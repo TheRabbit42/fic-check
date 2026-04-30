@@ -17,7 +17,7 @@ export class OverusedAdverbs extends ICheck {
         this.counts = {}
         for (let paragraph of paragraphs) {
             for (const adverb of adverbs) {
-                const regex = new RegExp(adverb, 'gi');
+                const regex =  new RegExp(`\\b${adverb}\\b`, 'gi');
                 let matchCount = (paragraph.match(regex) || []).length;
                 this.counts[adverb] = this.counts[adverb] || 0;
                 this.counts[adverb] += matchCount;
