@@ -1,0 +1,16 @@
+export const speakingVerbs = [
+    'asked',
+    'begged',
+    'cried',
+    'exclaimed',
+    'explained',
+    'gasped',
+    'observed',
+    'pleaded',
+    'said',
+    'screamed',
+    'shouted',
+    'thought',
+    'roared',
+    'yelled',
+];

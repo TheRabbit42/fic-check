@@ -14,6 +14,11 @@ describe("UnsmoothAttribution", () => {
         expect(check.isInParagraph(text)).toBe(true);
     });
 
+    it(`detects ambiguous attribution`, () => {
+        const text = `"No!" Marinette shouted.`;
+        expect(check.isInParagraph(text)).toBe(true);
+    });
+
     it(`ignores said after question mark`, () => {
         const text = `"Why?" said Marinette.`;
         expect(check.isInParagraph(text)).toBe(false);

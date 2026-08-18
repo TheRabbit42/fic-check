@@ -1,10 +1,10 @@
 import { ICheck } from "./ICheck.js";
+import { speakingVerbs } from "../data/speakingVerbs.js";
 
 export class UnsmoothAttribution extends ICheck {
     message = 'No awkward attributions';
     style = 'warning';
-    
-    regex = /[?!]" [A-Z][ A-z]+ (said|asked)/g;
+    regex = new RegExp(`[?!]" [A-Z][ A-Za-z]+ (${ speakingVerbs.join('|')})`, 'g');
 
     isInParagraph(paragraph) {
         return (paragraph.match(this.regex) || []).length > 0;
