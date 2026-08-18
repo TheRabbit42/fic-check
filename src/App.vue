@@ -99,44 +99,46 @@ function renderParagraph(paragraph) {
       </div>
     </header>
 
-    <main>
-      <div class="container">
-        <div class="col-span-8">
-          <article v-if="renderedInput === ''">
-            <p class="placeholder-text">
-              see how the<br/>
-              text will look<br/>
-              when rendered
-            </p>
-          </article>
-          <article v-if="renderedInput !== ''" v-html="renderedInput"></article>
-        </div>
-        <div class="col-span-4">
-          <aside>
-            <div class="word-count-display">
-              <div>
+    <div class="page">
+      <main>
+        <div class="container">
+          <div class="col-span-8">
+            <article v-if="renderedInput === ''">
+              <p class="placeholder-text">
+                see how the<br/>
+                text will look<br/>
+                when rendered
+              </p>
+            </article>
+            <article v-if="renderedInput !== ''" v-html="renderedInput"></article>
+          </div>
+          <div class="col-span-4">
+            <aside>
+              <div class="word-count-display">
                 <div>
-                  {{ wordCountDisplay }}
+                  <div>
+                    {{ wordCountDisplay }}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div v-if="renderedInput === ''" >
-              <p class="placeholder-text">
-                check for<br/>common<br/>mistakes
-              </p>
-            </div>
-            <div v-if="renderedInput !== ''" >
-              <div v-for="msg in state.messages" :class="msg.style">
-                <a @click="clickedCheck(msg)">{{ msg.text }}</a>
-                <p v-html="msg.renderAdditional"></p>
+              <div v-if="renderedInput === ''" >
+                <p class="placeholder-text">
+                  check for<br/>common<br/>mistakes
+                </p>
               </div>
-            </div>
-          </aside>
+              <div v-if="renderedInput !== ''" >
+                <div v-for="msg in state.messages" :class="msg.style">
+                  <a @click="clickedCheck(msg)">{{ msg.text }}</a>
+                  <p v-html="msg.renderAdditional"></p>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
-      </div>
-    </main>
-    <footer>
-      Made by <a href="https://www.daniel-jordan.com">Dan Jordan</a>
-    </footer>
+      </main>
+      <footer>
+        Made by <a href="https://www.daniel-jordan.com">Dan Jordan</a>
+      </footer>
+    </div>
   </div>
 </template>

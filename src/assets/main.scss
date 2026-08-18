@@ -26,7 +26,7 @@ body {
   display: flex;
 }
 
-header, aside, main, article, footer {
+header, aside, article, .page {
   box-shadow: 0 0 0.5rem var(--color-shadow);
 }
 
@@ -52,6 +52,13 @@ header {
     width: 5rem;
     text-align: center;
   }
+}
+
+.page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: start;
 }
 
 main {

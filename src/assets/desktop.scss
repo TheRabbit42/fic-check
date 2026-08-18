@@ -21,12 +21,13 @@
     }
   }
 
-  header > div, main, footer {
+  header > div, .page {
     margin: 0 auto;
     max-width: 1000px;
   }
 
-  main, footer {
+  .page {
+    height: 100%;
     width: 1000px;
   }
 
